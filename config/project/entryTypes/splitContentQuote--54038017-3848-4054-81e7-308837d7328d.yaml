@@ -1,0 +1,99 @@
+color: null
+fieldLayouts:
+  deec0609-87b4-4d5f-a1eb-30872427ad91:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-11-11T01:37:39+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 73eb6103-eb98-40c5-8c06-3083331c6c42
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:40:17+00:00'
+            elementCondition: null
+            fieldUid: 87b48b24-95b9-4758-abda-0f104885c7ca # Body
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c12da474-18f1-4499-9c5e-e3bd8c69f29b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:40:17+00:00'
+            elementCondition: null
+            fieldUid: 1bd9a6ef-354b-40df-91ba-698813c387ac # Quote
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3859585d-de3b-4491-a5f1-45a7f7d8104c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:40:17+00:00'
+            elementCondition: null
+            fieldUid: 1db34d3e-6863-40d5-9e01-b37e24926ae9 # Background Color
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 614eaeb5-6d47-464a-8617-30237d5b1e7b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 2e5129f0-b235-4f36-bf98-8d869d6a6376
+        userCondition: null
+handle: splitContentQuote
+hasTitleField: false
+icon: quotes
+name: 'Split Content with Quote'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

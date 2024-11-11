@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en-US
+name: 'Words Breathe'
+primary: true
+siteGroup: 82ae5035-f9ed-41cf-b8f9-81cbac031b82 # Words Breathe
+sortOrder: 1

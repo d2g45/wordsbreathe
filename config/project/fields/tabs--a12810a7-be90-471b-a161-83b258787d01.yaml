@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: tabs
+instructions: null
+name: Tabs
+searchable: false
+settings:
+  contentTable: ''
+  createButtonLabel: null
+  entryTypes:
+    - 9958998c-7704-4f45-bd1d-0dc7b3df85d7 # Tab
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

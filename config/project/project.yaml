@@ -1,0 +1,147 @@
+dateModified: 1731292400
+email:
+  fromEmail: d2g450@gmail.com
+  fromName: 'Words Breathe'
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  localUploads:
+    hasUrls: true
+    name: 'Local Uploads'
+    settings:
+      path: files/uploads
+    type: craft\fs\Local
+    url: /files/uploads
+meta:
+  __names__:
+    1bd9a6ef-354b-40df-91ba-698813c387ac: Quote # Quote
+    1db34d3e-6863-40d5-9e01-b37e24926ae9: 'Background Color' # Background Color
+    1e010436-f588-4131-9886-a79965e3af11: 'Image on Left?' # Image on Left?
+    1ec06e2e-3454-483b-ba5e-d4417415fca9: Video # Video
+    2a1125ec-93fc-47fa-9a61-bf97c6137183: 'Matrix Blocks' # Matrix Blocks
+    3b105930-d90a-46dc-b6b9-9af6e6f79b07: Header # Header
+    3d572f4a-04ac-4ba0-a490-b20095ec04e9: Vimeo # Vimeo
+    3e553aa5-d12c-48de-b284-e58d0755d818: Tabs # Tabs
+    4aa650bb-faee-4b5a-af10-7ef01ad1ad7d: Entry # Entry
+    4ba4480a-744a-454f-a704-a9972c15d2fb: Workshops # Workshops
+    4cd108b9-8609-44cf-a28e-9ffe48def736: Quote # Quote
+    4ead00ff-db89-45c9-9f8d-800fa52e8cf4: Label # Label
+    6c69a543-e926-4875-8f7f-81b29a45538f: URL # URL
+    7d0d1866-c791-4d01-bdd0-7f776c670f00: Simple # Simple
+    7d07ad6e-54cc-4dba-8408-001560384b0f: SEO # SEO
+    8d790e43-b068-4c70-89e2-faaf96412ed5: Interior # Interior
+    9c3360db-394f-4223-8000-354eeb23f28a: Gallery # Gallery
+    9cd0ce47-61cf-42b0-ad72-e7500628c889: Link # Link
+    12fe8dbf-56a7-477e-ab23-9baa4393cefb: 'Block Height' # Block Height
+    27d669ea-3cf4-45f0-96a9-f32a8f107f23: Uploads # Uploads
+    35b1f835-25a3-481f-adc0-4a3492ab7461: 'Split Content with Image' # Split Content with Image
+    82ae5035-f9ed-41cf-b8f9-81cbac031b82: 'Words Breathe' # Words Breathe
+    84ac73bb-2190-481e-bbbb-d2d168f7658e: 'Split Style' # Split Style
+    87b48b24-95b9-4758-abda-0f104885c7ca: Body # Body
+    96c17a48-8b22-40cd-a7a1-0efcac98dc58: SVGs # SVGs
+    218e4e31-a2c3-44bb-a2d5-dd0dbedcb739: 'Social Navigation' # Social Navigation
+    238af70c-5f6a-42fc-a0c6-ac969bda13b2: 'Pages Default' # Pages Default
+    259dd142-15f3-4807-bfa7-da779642da72: 'Workshops Default' # Workshops Default
+    411a6673-f036-498c-bbb4-961573567da8: Workshops # Workshops
+    643bdd24-c24d-4e67-a3f0-2c41c4c9a690: Email # Email
+    690c6206-1642-44f8-bb7a-43307b9cf078: Links # Links
+    736edba1-b91d-45f9-9c4b-409efa92e30d: 'Featured?' # Featured?
+    997c67a6-6ae1-47fa-a533-e2c515fc005a: Links # Links
+    4897b287-eb53-4d34-9098-0c209939a9b8: Images # Images
+    5161b8ef-21cc-450c-b45b-e1204dc25b9e: Youtube # Youtube
+    13986c7c-5090-43b1-86b4-2ed7255a9e72: Header # Header
+    55742ea8-3a64-4450-9780-4529c5240591: Image # Image
+    7830615a-b91e-4486-a443-f9666a67c6bc: 'Hero Home' # Hero Home
+    9958998c-7704-4f45-bd1d-0dc7b3df85d7: Tab # Tab
+    33514251-bf11-4670-ac0f-dc27219907cd: 'Short Description' # Short Description
+    54038017-3848-4054-81e7-308837d7328d: 'Split Content with Quote' # Split Content with Quote
+    71359506-5c88-410c-84fa-45eef2b0e948: Footer # Footer
+    a12810a7-be90-471b-a161-83b258787d01: Tabs # Tabs
+    a3901714-37ac-4632-a2cc-2eea9560f49a: Workshops # Workshops
+    aa7f139c-1554-4510-bda0-8dbf9831b489: Navigation # Navigation
+    b53c7a52-6b00-4580-ac7c-c9e3eb83dae5: 'Words Breathe' # Words Breathe
+    b414bec0-9618-40d6-8b08-bf6ddc260748: Form # Form
+    b765de76-47a1-4c28-a09e-2c1f21863981: 'Hero Simple' # Hero Simple
+    c0e8c8ce-84de-480e-84a2-59baf45a6734: 'Home Centered' # Home Centered
+    c77c4f77-fe5d-4232-af2a-3363f8232de6: Workshop # Workshop
+    ca1f3b62-4184-44f1-a24c-a0d692d18a1f: 'Centered Header' # Centered Header
+    ce984606-e569-4545-8d76-bbc8b17602a0: Intro # Intro
+    d5a333c3-45b8-45d5-87e7-0ceb7803a5a9: 'Simple Links' # Simple Links
+    d8cd71d6-74da-490e-9281-a61ef5f6b855: Page # Page
+    d28d42b5-9d55-4bd0-acfb-ea9fd6198ee1: Instagram # Instagram
+    dbc32e5b-556e-4114-8f7a-d6e47619d685: 'Button Text' # Button Text
+    dd201601-6c8b-4279-ad10-8c9bbf9bc06a: 'Hero Split' # Hero Split
+    e081504e-29f9-48eb-9276-202011a5a9be: Pages # Pages
+    e5a0d5e1-71a9-4fa0-af3e-077a7d2e1653: 'Link Type' # Link Type
+    e34c4ffe-f62d-4cba-bb09-186b143dae66: Default # Default
+    e57c96e1-e4af-4fd1-9692-376349212ce1: 'Background Image' # Background Image
+    ecdb458f-03d7-4123-bdd8-bf7ce6881b06: Pages # Pages
+plugins:
+  block-usage:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
+  colour-swatches:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.4.3
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  contact-form-extensions:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+  contact-form-honeypot:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  craft-recaptcha:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  embeddedassets:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  field-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  inlinesvg:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  seo:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.2.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 4.0.0
+  tablemaker:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: 'Words Breathe'
+  schemaVersion: 5.3.0.2
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

@@ -1,0 +1,42 @@
+{% extends '_layout' %}
+
+{% set blocks =
+    entry.matrixBlocks.with(
+        [
+            'caseStudies:caseStudies',
+            'caseStudies:caseStudies.defaultImage',
+            'contact:backgroundImage',
+            'featuredCaseStudies:caseStudies',
+            'featuredCaseStudies:caseStudies.image',
+            'featuredCaseStudies:caseStudies.caseStudyEntry',
+            'heroVideo:video',
+            'heroSplit:image',
+            'imageGrid:images',
+            'imageBanner:bannerItems.image',
+            'singleCaseStudy:caseStudy',
+            'singleCaseStudy:caseStudy.defaultImage',
+            'singleCaseStudy:caseStudy.defaultVideo',
+            'svgGrid:svgs'
+        ]
+    ).all()
+%}
+
+{% block content %}
+    <div class="blocks-wrapper w-full">
+        {% for item in blocks %}
+            {% cache using
+                key
+                craft.app.request.pathInfo ~ '-block-' ~ item.type.handle
+                    ~ '-id-'
+                    ~ item.id
+                if
+                item.type.handle not in ['formModal', 'form']
+            %}
+                {% include 'blocks/' ~ item.type.handle with {
+                    first: loop.first,
+                    last: loop.last
+                } %}
+            {% endcache %}
+        {% endfor %}
+    </div>
+{% endblock %}

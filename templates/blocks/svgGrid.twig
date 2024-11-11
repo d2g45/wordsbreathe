@@ -1,0 +1,23 @@
+{% extends 'blocks/__base__' %}
+
+{% set classes = ['bg-neutral-300'] %}
+
+{% block block_content %}
+    {% set svgs = item.svgs.all() %}
+
+    {% if header %}
+        <h2 class="gs-lazy text-center text-slate-700">
+            {{ item.header }}
+        </h2>
+    {% endif %}
+
+    {% if (svgs|length) > 0 %}
+        <div class="grid grid-cols-2 grid-rows-1 gap-12 md:grid-cols-3 md:gap-20 lg:grid-cols-4 lg:gap-24 xl:py-32">
+            {% for svg in svgs %}
+                <div class="gs-lazy hover:opacity-1 opacity-75 grayscale transition-all duration-700 ease-in-out hover:grayscale-0">
+                    {{ svg(svg) }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

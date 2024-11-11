@@ -1,0 +1,103 @@
+@layer utilities {
+    .block-wrapper {
+        @apply relative w-full py-12 md:py-20 lg:py-24 xl:py-32;
+
+        &--half-padding {
+            @apply py-6 md:py-10 lg:py-12 xl:py-16;
+        }
+
+        &--quarter-padding {
+            @apply py-3 md:py-5 lg:py-6 xl:py-8;
+        }
+
+        &--no-padding {
+            @apply py-0;
+        }
+
+        // &:not(.block--hero-simple) {
+        //     &.bg-neutral-200 + .block-wrapper.bg-neutral-200 {
+        //         @apply pt-0;
+        //     }
+
+        //     &.bg-neutral-800 + .block-wrapper.bg-neutral-800 {
+        //         @apply pt-0;
+        //     }
+        // }
+    }
+
+    .block-container {
+        @apply container relative z-10 mx-auto px-4;
+    }
+
+    .button {
+        @apply cursor-pointer rounded-full border p-4 text-center font-bold tracking-wider transition-all duration-300 md:px-8;
+
+        &--small {
+            @apply p-2 md:px-4;
+        }
+
+        &--default {
+            @apply border-slate-100 bg-slate-100 text-slate-700;
+
+            &__red {
+                @apply border-red-500 bg-red-500 hover:border-red-700 hover:bg-red-700;
+            }
+
+            &__black {
+                @apply border-neutral-800 bg-neutral-800 hover:border-neutral-900 hover:bg-neutral-900;
+            }
+
+            &__blue {
+                @apply border-blue-500 bg-blue-500 text-white hover:border-blue-700 hover:bg-blue-700;
+            }
+        }
+
+        &--hollow {
+            @apply border-slate-100 bg-transparent text-slate-100 hover:bg-slate-100 hover:text-slate-700;
+        }
+    }
+
+    .bg-image {
+        @apply absolute inset-0 z-0 bg-cover bg-center bg-no-repeat md:bg-center;
+
+        &-overlay {
+            @apply absolute inset-0 z-10 bg-neutral-900/60;
+
+            &--light {
+                @apply bg-neutral-900/40;
+            }
+
+            &--blur {
+                @apply backdrop-blur-sm transition-all duration-700 ease-in-out group-hover:opacity-75 group-hover:backdrop-blur-none;
+            }
+        }
+    }
+
+    .cms-content {
+        hr {
+            @apply my-4 block border-t border-solid border-current md:my-8 lg:my-12;
+
+            &::last-child {
+                @apply mb-0;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply mb-4 md:mb-8 lg:mb-12;
+        }
+
+        p:not(:last-child) {
+            @apply mb-4;
+        }
+
+        ul,
+        ol {
+            @apply mb-4 list-inside list-disc px-4;
+        }
+    }
+}

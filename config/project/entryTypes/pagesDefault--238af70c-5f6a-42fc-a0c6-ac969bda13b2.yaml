@@ -1,0 +1,89 @@
+color: null
+fieldLayouts:
+  e74a6f2f-6840-4c25-a496-15ccf56bdcc3:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-11-11T01:25:54+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 207a4727-1cb1-4025-b8be-aa72b8dd004f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:27:41+00:00'
+            elementCondition: null
+            fieldUid: 2a1125ec-93fc-47fa-9a61-bf97c6137183 # Matrix Blocks
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a61601b2-2ba5-4165-8d5d-aa23202dfff3
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 907e19c2-ca9f-461e-b1c5-2bafd1d61a3b
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-11T01:27:41+00:00'
+            elementCondition: null
+            fieldUid: 7d07ad6e-54cc-4dba-8408-001560384b0f # SEO
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e215b63c-6063-4f7f-92bc-9ba0f71d20b8
+            userCondition: null
+            warning: null
+            width: 100
+        name: Meta
+        uid: ff06a7e8-7211-42c8-8d38-05d20553b171
+        userCondition: null
+handle: pagesDefault
+hasTitleField: true
+icon: page
+name: 'Pages Default'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,48 @@
+{% extends 'blocks/__base__' %}
+
+{% set classes = ['block-wrapper--no-padding'] %}
+
+{% block block_outer %}
+    {% set bannerItems = item.bannerItems %}
+    {% set columnCount = 0 %}
+    {% for bannerItem in bannerItems %}
+        {% set newCount = bannerItem.size == 'square' ? 1 : 2 %}
+        {% set columnCount = columnCount + newCount %}
+    {% endfor %}
+
+    {% if (bannerItems|length) > 0 %}
+        {% switch columnCount %}
+        {% case 3 %}
+            {% set gridColumns = 'lg:grid-cols-3' %}
+        {% case 4 %}
+            {% set gridColumns = 'lg:grid-cols-4' %}
+        {% case 5 %}
+            {% set gridColumns = 'lg:grid-cols-5' %}
+        {% case 6 %}
+            {% set gridColumns = 'lg:grid-cols-6' %}
+        {% default %}
+            {% set gridColumns = '' %}
+        {% endswitch %}
+
+        <div class="grid grid-cols-1 grid-rows-1 {{ gridColumns }}">
+            {% for bannerItem in bannerItems %}
+                {% set isWide = bannerItem.size == 'wide' %}
+                {% set image = bannerItem.image.one() %}
+                {% set transformName = 'sixHundred' %}
+                {% if isWide %}
+                    {% set transformName = 'sixHundredWide' %}
+                {% endif %}
+
+                {% set thumbnail = image.getUrl(transformName) %}
+                {% set span = isWide == 'wide' ? 'lg:col-span-2' : '' %}
+                <div class="col-span-1 {{ span }}">
+                    <img class="gs-lazy js-image w-full"
+                        data-src="{{ thumbnail }}"
+                        src=""
+                        loading="lazy"
+                        alt="{{ image.alt ?? image.title }}" />
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

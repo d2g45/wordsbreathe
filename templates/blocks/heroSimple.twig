@@ -1,0 +1,40 @@
+{% extends 'blocks/__base__' %}
+
+{% set padding = item.blockHeight == 'maxViewportHeight'
+    ? 'block-wrapper--no-padding'
+    : ''
+%}
+
+{% set classes = [padding, 'bg-neutral-800', 'block--hero-simple'] %}
+
+{% block block_under %}
+    {% set backgroundImage = item.backgroundImage.one() ?? null %}
+    {% if backgroundImage %}
+        {% include 'components/background-image' with {
+            image: backgroundImage,
+            bg: {
+                fixed: true
+            },
+            overlay: {
+                show: true
+            }
+        } %}
+    {% endif %}
+{% endblock %}
+
+{% block block_content %}
+    {% set classes = '' %}
+    {% if item.blockHeight == 'maxViewportHeight' %}
+        {% set classes = 'h-screen' %}
+    {% endif %}
+
+    <div class="relative flex w-full flex-col items-center justify-center text-white {{
+        classes
+        }}">
+        {% if item.header %}
+            <h1 class="gs-lazy block text-center">
+                {{ item.header }}
+            </h1>
+        {% endif %}
+    </div>
+{% endblock %}

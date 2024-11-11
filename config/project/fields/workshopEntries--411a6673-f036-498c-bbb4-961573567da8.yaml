@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: workshopEntries
+instructions: null
+name: Workshops
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: false
+  sources:
+    - 'section:a3901714-37ac-4632-a2cc-2eea9560f49a' # Workshops
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

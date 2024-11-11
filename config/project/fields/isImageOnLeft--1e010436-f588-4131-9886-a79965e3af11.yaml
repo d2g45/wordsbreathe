@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: isImageOnLeft
+instructions: null
+name: 'Image on Left?'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

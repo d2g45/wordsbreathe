@@ -1,0 +1,170 @@
+{% extends 'blocks/__base__' %}
+
+{% macro errorList(errors) %}
+    {% if errors %}
+        {{
+            ul(
+                errors,
+                {
+                    class: 'errors'
+                }
+            )
+        }}
+    {% endif %}
+{% endmacro %}
+
+{% set submission = submission ?? null %}
+{% set message = message ?? null %}
+
+{% set colorInfo = item.backgroundColor.color[0] ?? null %}
+{% set label = item.backgroundColor.label is defined
+    ? item.backgroundColor.label|lower
+    : ''
+%}
+{% switch label %}
+{% case 'light' %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% case 'dark' %}
+    {% set backgroundClass = 'bg-neutral-800' %}
+    {% set textClass = 'text-neutral-200' %}
+{% default %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% endswitch %}
+
+{% set classes = [backgroundClass, textClass, 'block-wrapper--half-padding'] %}
+{% set inputClass =
+    'rounded-sm border border-neutral-400 p-2 text-neutral-800 w-full'
+%}
+
+{% block block_content %}
+    {% if item.header %}
+        <h2 class="gs-lazy mx-auto mb-4 max-w-5xl border-b border-white p-4 text-center md:mb-6 lg:mb-8">
+            {{ item.header }}
+        </h2>
+    {% endif %}
+
+    {% if item.body %}
+        <div class="gs-lazy cms-content gs-content">
+            {{ item.body|raw }}
+        </div>
+    {% endif %}
+
+    <div class="form-container mx-auto max-w-5xl">
+        {% if craft.app.session.hasFlash('notice') %}
+            <p class="mb-4 rounded-md border border-solid border-green-600 bg-green-300 p-4 text-black">
+                {{ craft.app.session.getFlash('notice') }}
+            </p>
+        {% elseif craft.app.session.hasFlash('error') %}
+            <p class="mb-4 rounded-md border border-solid border-red-600 bg-red-300 p-4 text-black">
+                {{ craft.app.session.getFlash('error') }}
+            </p>
+        {% endif %}
+        <form method="post"
+            action=""
+            class="flex w-full flex-col gap-4"
+            accept-charset="UTF-8">
+            {{ csrfInput() }}
+            {{ actionInput('contact-form/send') }}
+
+            <div class="grid grid-cols-1 grid-rows-1 gap-4 lg:grid-cols-2">
+                <div class="flex w-full flex-col gap-4">
+                    <label class="flex flex-col items-start justify-center gap-2">
+                        <span class="font-semibold">Your Name *</span>
+
+                        {{
+                            input(
+                                'text',
+                                'fromName',
+                                submission.fromName ?? '',
+                                {
+                                    id: 'from-name',
+                                    autocomplete: 'name',
+                                    class: inputClass,
+                                    required: true
+                                }
+                            )
+                        }}
+                    </label>
+                    {{ submission
+                        ? _self.errorList(submission.getErrors('fromName')) }}
+                </div>
+                <div class="flex w-full flex-col gap-4">
+                    <label class="flex flex-col items-start justify-center gap-2">
+                        <span class="font-semibold">Your Email *</span>
+                        {{
+                            input(
+                                'email',
+                                'fromEmail',
+                                submission.fromEmail ?? '',
+                                {
+                                    id: 'from-email',
+                                    autocomplete: 'email',
+                                    class: inputClass,
+                                    required: true
+                                }
+                            )
+                        }}
+                    </label>
+                    {{ submission
+                        ? _self.errorList(submission.getErrors('fromEmail')) }}
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 grid-rows-1 gap-4">
+                <div class="flex w-full flex-col gap-4">
+                    <label class="flex flex-col items-start justify-center gap-2">
+                        <span class="font-semibold">Subject *</span>
+                        {{
+                            input(
+                                'text',
+                                'subject',
+                                submission.subject ?? '',
+                                {
+                                    id: 'subject',
+                                    class: inputClass,
+                                    required: true
+                                }
+                            )
+                        }}
+                    </label>
+                    {{ submission
+                        ? _self.errorList(submission.getErrors('subject')) }}
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 grid-rows-1 gap-4">
+                <div class="flex w-full flex-col gap-4">
+                    <label class="flex flex-col items-start justify-center gap-2">
+                        <span class="font-semibold">Message *</span>
+                        {{
+                            tag(
+                                'textarea',
+                                {
+                                    text: submission.message ?? '',
+                                    id: 'message',
+                                    name: 'message',
+                                    rows: 10,
+                                    cols: 40,
+                                    class: inputClass,
+                                    required: true
+                                }
+                            )
+                        }}
+                    </label>
+                    {{ submission
+                        ? _self.errorList(submission.getErrors('message')) }}
+                </div>
+            </div>
+
+            <div class="text-center">
+                {{ craft.contactFormExtensions.recaptcha|raw }}
+                <button type="submit"
+                    class="button button--default button--default__blue">
+                    Connect Now
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

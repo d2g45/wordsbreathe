@@ -1,0 +1,20 @@
+{% extends 'blocks/__base__' %}
+
+{% set classes = ['bg-neutral-900'] %}
+{% set caseStudies = item.caseStudies.all() %}
+
+{% block block_content %}
+    {% if item.header %}
+        <h2 class="gs-lazy mb-4 md:mb-6 lg:mb-8">
+            {{ item.header }}
+        </h2>
+    {% endif %}
+
+    {% if item.description %}
+        <div class="gs-lazy cms-content gs-content mb-4 md:mb-6 lg:mb-8">
+            {{ item.description|raw }}
+        </div>
+    {% endif %}
+
+    {% include 'components/case-study-grid' %}
+{% endblock %}

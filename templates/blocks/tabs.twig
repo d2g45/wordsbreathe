@@ -1,0 +1,94 @@
+{% extends 'blocks/__base__' %}
+
+{% set tabs = item.tabs.all() ?? [] %}
+
+{% block block_wrapper %}
+    <div class="js-tabs tabs-wrapper block-wrapper relative z-0">
+        {% for tab in tabs %}
+            {% set backgroundImage = tab.image.one() ?? null %}
+            {% if backgroundImage %}
+                <div id="tab-background-{{ tab.id }}"
+                    class="js-tab-background tab-background {{
+                    loop.first
+                        ? 'tab-background--active'
+                        : ''
+                    }}">
+                    {% include 'components/background-image' with {
+                        image: backgroundImage,
+                        overlay: {
+                            show: true
+                        }
+                    } %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <div class="tabs-container block-container z-1 relative grid grid-cols-1 grid-rows-1 gap-0">
+            <div id="tab-navigation-{{ item.id }}"
+                data-id="{{ item.id }}"
+                class="js-tabs-navigation mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul class="-mb-px flex flex-row flex-wrap items-center text-center align-middle"
+                    id="tabs-{{ item.id }}"
+                    role="tablist">
+                    {% for tab in tabs %}
+                        <li class="w-1/3 {{
+                            loop.first
+                                ? 'tab-navigation--active'
+                                : ''
+                            }} tab-navigation"
+                            role="presentation">
+                            <button class="js-tabs-button block w-full p-4 text-center text-lg font-bold"
+                                id="button-tab-{{ tab.id }}"
+                                data-id="{{ tab.id }}"
+                                data-tab-target="#tabs-content-{{ tab.id }}"
+                                type="button"
+                                role="tab"
+                                aria-controls="tabs-content-{{ tab.id }}"
+                                aria-selected="false">
+                                {{ tab.label }}
+                            </button>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="tab-container-{{ item.id }}"
+                data-id="{{ item.id }}"
+                class="js-tabs-container z-1 relative">
+                {% for tab in tabs %}
+                    <div id="tab-content-{{ tab.id }}"
+                        class="js-tabs-content tab-content block-wrapper mx-auto max-w-3xl text-center {{
+                        loop.first
+                            ? 'tab-content--active'
+                            : ''
+                        }}"
+                        role="tabpanel"
+                        aria-labelledby="button-tab-{{ tab.id }}">
+                        {% if tab.header %}
+                            <h2 class="gs-lazy mb-4 md:mb-6 lg:mb-8">
+                                {{ tab.header }}
+                            </h2>
+                        {% endif %}
+
+                        {% if tab.body %}
+                            <div class="gs-lazy cms-content gs-content mb-4 md:mb-6 lg:mb-8">
+                                {{ tab.body|raw }}
+                            </div>
+                        {% endif %}
+
+                        {% if tab.entry %}
+                            {% set tabEntry = tab.entry.one() %}
+
+                            {% if tabEntry %}
+                                <a href="{{ tabEntry.url }}"
+                                    title="Learn More about {{ tab.header|striptags }}"
+                                    class="button button--small button--default button--default__blue inline-block">
+                                    Learn More
+                                </a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

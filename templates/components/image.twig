@@ -1,0 +1,5 @@
+{% set classes = classes ?? [] %}
+<img class="js-image block {{ (classes|length) > 0 ? classes|join(' ') : '' }}"
+    data-src="{{ image.url }}"
+    src=""
+    alt="{{ image.alt }}" />

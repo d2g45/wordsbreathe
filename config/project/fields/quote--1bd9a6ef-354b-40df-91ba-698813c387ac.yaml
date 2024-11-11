@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: quote
+instructions: null
+name: Quote
+searchable: true
+settings:
+  contentTable: ''
+  createButtonLabel: null
+  entryTypes:
+    - 4cd108b9-8609-44cf-a28e-9ffe48def736 # Quote
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

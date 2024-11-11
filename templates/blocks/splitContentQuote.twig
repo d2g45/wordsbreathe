@@ -1,0 +1,46 @@
+{% extends 'blocks/__base__' %}
+{% set colorInfo = item.backgroundColor.color[0] ?? null %}
+{% set label = item.backgroundColor.label is defined
+    ? item.backgroundColor.label|lower
+    : ''
+%}
+{% switch label %}
+{% case 'light' %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% case 'dark' %}
+    {% set backgroundClass = 'bg-neutral-800' %}
+    {% set textClass = 'text-neutral-200' %}
+{% default %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% endswitch %}
+{% set classes = [backgroundClass, textClass] %}
+
+{% block block_wrapper %}
+    {% set quote = item.quote.one() %}
+    <div class="gs-group relative grid w-full grid-cols-1 grid-rows-1 lg:grid-cols-4 lorge:min-h-screen {{ classes|join(
+            ' '
+        ) }}">
+        <div class="block-wrapper col-span-1 flex flex-col items-start justify-center px-8 lg:col-span-2">
+            <div class="flex w-full flex-col items-start justify-end self-end lorge:max-w-[80%] yuge:max-w-[60%]">
+                <div class="gs-lazy gs-content cms-content text-lg leading-loose tracking-wide">
+                    {{ item.body|raw }}
+                </div>
+            </div>
+        </div>
+
+        <div class="block-wrapper relative col-span-1 flex flex-col items-center justify-center px-8 max-lg:h-96 lg:col-span-2">
+            <div class="split-content-quote mx-auto max-w-xl bg-slate-100/5 px-8 py-16 before:content-['\201C'] after:content-['\201D']">
+                <div class="text-center">
+                    <h3 class="mb-6">
+                        {{ quote.header }}
+                    </h3>
+                    <div class="text-xl font-semibold">
+                        {{ quote.intro }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

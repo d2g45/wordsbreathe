@@ -1,0 +1,131 @@
+color: null
+fieldLayouts:
+  c0b1a8a6-9216-4774-9669-ba6fdea0bec1:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-11-11T01:35:48+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: ad9a63e4-c489-4590-bb68-03177112db23
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:37:54+00:00'
+            elementCondition: null
+            fieldUid: 3b105930-d90a-46dc-b6b9-9af6e6f79b07 # Header
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a3c91854-6ab5-4526-b6dd-22bd6cf1ee32
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:37:54+00:00'
+            elementCondition: null
+            fieldUid: 87b48b24-95b9-4758-abda-0f104885c7ca # Body
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bbaf7ad0-1305-4d69-bada-8be117e2d122
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:37:54+00:00'
+            elementCondition: null
+            fieldUid: 55742ea8-3a64-4450-9780-4529c5240591 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 62466deb-9fb7-491c-b7b8-e60e8aba6c68
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T02:10:36+00:00'
+            elementCondition: null
+            fieldUid: 1e010436-f588-4131-9886-a79965e3af11 # Image on Left?
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dffca2b7-7fd4-4fe7-a667-9f3a84c52e95
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:37:54+00:00'
+            elementCondition: null
+            fieldUid: 1db34d3e-6863-40d5-9e01-b37e24926ae9 # Background Color
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5b998ae5-33d0-4902-83dd-65351a61a909
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: cc07bdca-88e4-4500-a549-a3e3a9516b2a
+        userCondition: null
+handle: splitContentImage
+hasTitleField: false
+icon: image-polaroid
+name: 'Split Content with Image'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

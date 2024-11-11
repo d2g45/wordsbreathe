@@ -1,0 +1,26 @@
+{% extends 'blocks/__base__' %}
+
+{% set colorInfo = item.backgroundColor.color[0] ?? null %}
+{% set label = item.backgroundColor.label is defined
+    ? item.backgroundColor.label|lower
+    : ''
+%}
+{% switch label %}
+{% case 'light' %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% case 'dark' %}
+    {% set backgroundClass = 'bg-neutral-800' %}
+    {% set textClass = 'text-neutral-200' %}
+{% default %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% endswitch %}
+
+{% set classes = [backgroundClass, textClass, 'block-wrapper--half-padding'] %}
+
+{% block block_content %}
+    <h2 class="gs-lazy mx-auto max-w-5xl border-b border-white p-4 text-center">
+        {{ item.header }}
+    </h2>
+{% endblock %}

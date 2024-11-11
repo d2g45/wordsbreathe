@@ -1,0 +1,60 @@
+{% extends 'blocks/__base__' %}
+{% set colorInfo = item.backgroundColor.color[0] ?? null %}
+{% set label = item.backgroundColor.label is defined
+    ? item.backgroundColor.label|lower
+    : ''
+%}
+{% switch label %}
+{% case 'light' %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% case 'dark' %}
+    {% set backgroundClass = 'bg-neutral-800' %}
+    {% set textClass = 'text-neutral-200' %}
+{% default %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% endswitch %}
+{% set classes = [backgroundClass, textClass] %}
+
+{% block block_wrapper %}
+    {% set image = item.image.one() %}
+
+    <div data-name="{{ item.type }}"
+        class="gs-group relative grid w-full grid-cols-1 grid-rows-1 lg:grid-cols-4 lorge:min-h-screen {{ classes|join(
+            ' '
+        ) }}">
+        {% if image %}
+            <div class="relative col-span-1 lg:col-span-2 {{
+                item.isImageOnLeft
+                    ? 'order-1'
+                    : 'order-2'
+                }}">
+                {% include 'components/image' with {
+                    image: image,
+                    classes: ['lg:object-cover', 'w-full', 'lg:h-full'],
+                    overlay: {
+                        show: false
+                    }
+                } %}
+            </div>
+        {% endif %}
+
+        <div class="block-wrapper col-span-1 flex flex-col items-start justify-center px-8 lg:col-span-2 {{
+            item.isImageOnLeft
+                ? 'order-2'
+                : 'order-1'
+            }}">
+            <div class="flex w-full flex-col items-start justify-end self-end lorge:max-w-[80%] yuge:max-w-[60%]">
+                {% if item.header %}
+                    <h2 class="gs-lazy mb-8 lg:mb-12">
+                        {{ item.header }}
+                    </h2>
+                {% endif %}
+                <div class="gs-lazy gs-content cms-content text-lg leading-loose tracking-wide">
+                    {{ item.body|raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

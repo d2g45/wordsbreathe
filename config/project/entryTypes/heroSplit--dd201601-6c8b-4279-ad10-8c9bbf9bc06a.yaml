@@ -1,0 +1,115 @@
+color: null
+fieldLayouts:
+  8f063739-5ec7-4c93-83e0-a1de8d4681b2:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-11-11T00:47:49+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: d803a9b1-d089-4836-9a02-0661ca8b828e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T00:49:24+00:00'
+            elementCondition: null
+            fieldUid: 3b105930-d90a-46dc-b6b9-9af6e6f79b07 # Header
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24a628ad-e79f-4ef3-862f-a52b85e29016
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T00:49:24+00:00'
+            elementCondition: null
+            fieldUid: 87b48b24-95b9-4758-abda-0f104885c7ca # Body
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 97efeef7-6321-4a32-8d53-09184b5742d8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T00:49:24+00:00'
+            elementCondition: null
+            fieldUid: 55742ea8-3a64-4450-9780-4529c5240591 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5a5b689a-e43e-4dd4-b2c6-410e99e2e109
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T00:49:24+00:00'
+            elementCondition: null
+            fieldUid: 84ac73bb-2190-481e-bbbb-d2d168f7658e # Split Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4255f7b0-7c00-454f-b9b5-b9548252805b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 75260859-e04f-450d-8274-6a4cf5c4be41
+        userCondition: null
+handle: heroSplit
+hasTitleField: false
+icon: braille
+name: 'Hero Split'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{header}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

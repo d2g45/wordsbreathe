@@ -1,0 +1,54 @@
+{
+    "name": "words-breathe",
+    "version": "1.1.1",
+    "description": "Words Breathe Site",
+    "main": "vite.config.js",
+    "scripts": {
+        "dev": "npx vite dev",
+        "prod": "npx vite build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/d2g45/words.git"
+    },
+    "author": "d2g45",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/d2g45/words/issues"
+    },
+    "homepage": "https://github.com/d2g45/words#readme",
+    "browserslist": {
+        "production": [
+            "defaults"
+        ],
+        "development": [
+            "defaults"
+        ]
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^7.14.1",
+        "@typescript-eslint/parser": "^7.14.1",
+        "@vitejs/plugin-legacy": "^5.4.1",
+        "@zackad/prettier-plugin-twig-melody": "^0.6.0",
+        "autoprefixer": "^10.4.19",
+        "eslint": "8.57.0",
+        "fs-extra": "^11.2.0",
+        "postcss": "^8.4.39",
+        "prettier": "^3.3.2",
+        "prettier-plugin-tailwindcss": "^0.6.5",
+        "sass": "^1.77.6",
+        "tailwindcss": "^3.4.4",
+        "terser": "^5.31.1",
+        "vite-plugin-pwa": "^0.20.0",
+        "vite-plugin-restart": "^0.4.1",
+        "vite-plugin-webfont-dl": "^3.9.4",
+        "vite-tsconfig-paths": "^4.3.2"
+    },
+    "dependencies": {
+        "@glidejs/glide": "^3.6.1",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "gsap": "./node_packages/gsap-bonus.tgz",
+        "vite": "^5.3.2",
+        "vite-plugin-compression": "^0.5.1"
+    }
+}

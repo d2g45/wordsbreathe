@@ -1,0 +1,48 @@
+{% cache globally %}
+    <header class="gs-group fixed z-10 w-full bg-neutral-900/30 font-serif font-semibold backdrop-blur-md transition-colors duration-150 hover:bg-neutral-900">
+        <div class="block-container flex flex-row items-center justify-between">
+            <a href="/"
+                title="Go to the homepage"
+                class="gs-lazy block py-4 text-xl font-bold leading-none tracking-wider transition-colors duration-300 hover:text-blue-400">
+                <span class="max-md:hidden">{{ siteName }}</span>
+                <span class="md:hidden">{{ siteName }}</span>
+            </a>
+
+            {% set headerNavigation = header.navigation.all() %}
+            {% if (headerNavigation|length) > 0 %}
+                <nav class="flex flex-row items-center justify-center">
+                    {% for node in headerNavigation %}
+                        {% set children = node.children.all() ?? [] %}
+                        <div class="group/nav relative ml-2 py-4 lg:ml-4">
+                            <a href="{{ node.url }}"
+                                title="Go to: {{ node.title }}"
+                                class="gs-lazy group/link bold relative tracking-wider transition-colors duration-300 hover:text-blue-400">
+                                <span class="block">{{ node.title }}</span>
+                                <span class="absolute -bottom-1 left-0 block h-0.5 w-full scale-x-0 transition-all delay-75 duration-300 ease-in-out group-hover/link:scale-x-100 group-hover/link:bg-blue-500">
+
+                                </span>
+                            </a>
+
+                            {% if children|length %}
+                                <ul class="pointer-events-none absolute -left-6 top-full origin-top-left bg-neutral-900 px-6 py-4 opacity-0 transition-all duration-300 ease-linear group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
+                                    {% for child in children %}
+                                        <a href="{{ child.url }}"
+                                            title="Go to: {{ child.title }}"
+                                            class="gs-lazy group/link bold relative mb-2 block tracking-wider transition-colors duration-300 hover:text-blue-400">
+                                            <span class="block">
+                                                {{ child.title }}
+                                            </span>
+                                            <span class="absolute -bottom-1 left-0 block h-0.5 w-full origin-left scale-x-0 bg-white transition-all delay-75 duration-300 ease-in-out group-hover/link:scale-x-100 group-hover/link:bg-blue-500">
+
+                                            </span>
+                                        </a>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </nav>
+            {% endif %}
+        </div>
+    </header>
+{% endcache %}

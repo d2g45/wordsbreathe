@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "foxundermoon.shell-format",
+        "mblode.twig-language-2",
+        "mikestead.dotenv",
+    ]
+}

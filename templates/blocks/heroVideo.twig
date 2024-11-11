@@ -1,0 +1,56 @@
+{% extends 'blocks/__base__' %}
+
+{% block block_wrapper %}
+    {% set asset = item.video.one() ?? null %}
+
+    <div class="gs-group relative flex h-screen w-full flex-col items-center justify-center bg-zinc-900">
+        {% if asset %}
+            {% set embeddedAsset = craft.embeddedAssets.get(asset) %}
+            {% include 'components/background-image' with {
+                image: {
+                    url: embeddedAsset.image
+                },
+                bg: {
+                    fixed: true
+                },
+                overlay: {
+                    show: true
+                }
+            } %}
+        {% endif %}
+
+        <div class="relative z-10 flex flex-col items-center justify-center">
+            {% if item.header %}
+                <h1 class="gs-lazy mb-4 lg:mb-8">
+                    {{ item.header }}
+                </h1>
+            {% endif %}
+
+            {% if item.intro %}
+                <div class="gs-lazy mb-4 lg:mb-8">
+                    {{ item.intro|raw }}
+                </div>
+            {% endif %}
+
+            {% if asset %}
+                <button class="js-modal--hero-video gs-lazy button button--default__red flex flex-row items-center justify-center border-inherit">
+                    <span class="mr-4 block w-4">
+                        {{ inlineSvg('icons/play') }}
+                    </span>
+                    <span class="block">
+                        {{ item.buttonText|default('Watch Video') }}
+                    </span>
+                </button>
+            {% endif %}
+        </div>
+
+        {% if asset %}
+            {% include 'modals/video' with {
+                trigger: '.js-modal--hero-video',
+                asset: asset,
+                maxWidthClass: 'max-w-xl',
+                modalType: 'video'
+            } %}
+        {% endif %}
+    </div>
+{% endblock %}

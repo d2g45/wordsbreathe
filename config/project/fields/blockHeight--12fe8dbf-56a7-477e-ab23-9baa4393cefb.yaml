@@ -1,0 +1,32 @@
+columnSuffix: null
+handle: blockHeight
+instructions: null
+name: 'Block Height'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Auto
+        -
+          - value
+          - auto
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Max Viewport Height'
+        -
+          - value
+          - maxViewportHeight
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

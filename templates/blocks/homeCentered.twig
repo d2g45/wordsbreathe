@@ -1,0 +1,41 @@
+{% extends 'blocks/__base__' %}
+
+{% set colorInfo = item.backgroundColor.color[0] ?? null %}
+{% set label = item.backgroundColor.label is defined
+    ? item.backgroundColor.label|lower
+    : ''
+%}
+{% switch label %}
+{% case 'light' %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% case 'dark' %}
+    {% set backgroundClass = 'bg-neutral-800' %}
+    {% set textClass = 'text-neutral-200' %}
+{% default %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% endswitch %}
+
+{% set classes = [backgroundClass, textClass, 'block-wrapper--half-padding'] %}
+
+{% block block_under %}
+    {% set backgroundImage = item.backgroundImage.one() ?? null %}
+    {% if backgroundImage %}
+        {% include 'components/background-image' with {
+            image: backgroundImage,
+            bg: {
+                fixed: true
+            },
+            overlay: {
+                show: true
+            }
+        } %}
+    {% endif %}
+{% endblock %}
+
+{% block block_content %}
+    <div class="gs-lazy mx-auto flex h-screen max-w-6xl flex-col items-center justify-center text-center font-serif text-3xl font-bold leading-tight lg:text-[2.5rem]">
+        {{ item.header }}
+    </div>
+{% endblock %}

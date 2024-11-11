@@ -1,0 +1,131 @@
+color: null
+fieldLayouts:
+  a70714d8-995b-4628-b246-eb9717e0c1ab:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-11-11T01:31:57+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: dfec6550-4d74-45c7-8a63-09da46b63707
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:34:33+00:00'
+            elementCondition: null
+            fieldUid: 3b105930-d90a-46dc-b6b9-9af6e6f79b07 # Header
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ef1097ad-56ca-4224-b88c-e27028be6ec9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:34:33+00:00'
+            elementCondition: null
+            fieldUid: 87b48b24-95b9-4758-abda-0f104885c7ca # Body
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 34817cc5-d322-4439-a546-1516c823ead0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:34:33+00:00'
+            elementCondition: null
+            fieldUid: c77c4f77-fe5d-4232-af2a-3363f8232de6 # Workshop
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Featured Workshop'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e2eaf39e-50ef-4d65-93b5-e9a43428ea8a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:34:33+00:00'
+            elementCondition: null
+            fieldUid: 411a6673-f036-498c-bbb4-961573567da8 # Workshops
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8f650982-8aed-417a-aadb-3e8baa367c81
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-11T01:34:33+00:00'
+            elementCondition: null
+            fieldUid: 1db34d3e-6863-40d5-9e01-b37e24926ae9 # Background Color
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 218d7130-912b-423b-ac5f-9e044a3eca93
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: c9572e92-0f62-46ed-96c7-a75f1e9d4fb0
+        userCondition: null
+handle: workshops
+hasTitleField: false
+icon: axe
+name: Workshops
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{header}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

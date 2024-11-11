@@ -1,0 +1,18 @@
+@layer utilities {
+    .split-content-quote {
+        @apply relative;
+
+        &:before,
+        &:after {
+            @apply absolute text-[150px] leading-[0];
+        }
+
+        &:before {
+            @apply top-10 -left-4;
+        }
+
+        &:after {
+            @apply -bottom-10 -right-4;
+        }
+    }
+}

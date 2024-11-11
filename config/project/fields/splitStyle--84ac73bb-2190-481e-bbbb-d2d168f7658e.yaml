@@ -1,0 +1,65 @@
+columnSuffix: null
+handle: splitStyle
+instructions: null
+name: 'Split Style'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 50/50
+        -
+          - value
+          - 5050
+        -
+          - default
+          - 1
+    -
+      __assoc__:
+        -
+          - label
+          - 60/40
+        -
+          - value
+          - 6040
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 40/60
+        -
+          - value
+          - 4060
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 75/25
+        -
+          - value
+          - 7525
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 25/75
+        -
+          - value
+          - 2575
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -1,0 +1,25 @@
+{% extends 'blocks/__base__' %}
+
+{% set classes = ['bg-neutral-900'] %}
+
+{% block block_content %}
+    {% set images = item.images.all() %}
+
+    {% if header %}
+        <h2 class="text-center">
+            {{ item.header }}
+        </h2>
+    {% endif %}
+
+    {% if (images|length) > 0 %}
+        <div class="grid grid-cols-2 grid-rows-1 gap-12 md:grid-cols-3 md:gap-20 lg:grid-cols-4 lg:gap-24 xl:grid-cols-5 xl:py-32">
+            {% for image in images %}
+                <img class="gs-lazy js-image origin-center transition-all duration-500 ease-in-out hover:scale-105"
+                    data-src="{{ image.url }}"
+                    src=""
+                    loading="lazy"
+                    alt="{{ image.alt ?? image.title }}" />
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

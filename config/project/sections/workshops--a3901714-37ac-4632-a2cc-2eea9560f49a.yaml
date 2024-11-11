@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - 259dd142-15f3-4807-bfa7-da779642da72 # Workshops Default
+handle: workshops
+maxAuthors: 1
+name: Workshops
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  b53c7a52-6b00-4580-ac7c-c9e3eb83dae5: # Words Breathe
+    enabledByDefault: true
+    hasUrls: true
+    template: workshops/_entry.twig
+    uriFormat: 'workshops/{slug}'
+type: channel

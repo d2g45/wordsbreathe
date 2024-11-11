@@ -1,0 +1,32 @@
+columnSuffix: null
+handle: matrixBlocks
+instructions: null
+name: 'Matrix Blocks'
+searchable: true
+settings:
+  createButtonLabel: null
+  entryTypes:
+    - 7830615a-b91e-4486-a443-f9666a67c6bc # Hero Home
+    - b765de76-47a1-4c28-a09e-2c1f21863981 # Hero Simple
+    - dd201601-6c8b-4279-ad10-8c9bbf9bc06a # Hero Split
+    - ca1f3b62-4184-44f1-a24c-a0d692d18a1f # Centered Header
+    - 9c3360db-394f-4223-8000-354eeb23f28a # Gallery
+    - c0e8c8ce-84de-480e-84a2-59baf45a6734 # Home Centered
+    - 8d790e43-b068-4c70-89e2-faaf96412ed5 # Interior
+    - b414bec0-9618-40d6-8b08-bf6ddc260748 # Form
+    - 3e553aa5-d12c-48de-b284-e58d0755d818 # Tabs
+    - d5a333c3-45b8-45d5-87e7-0ceb7803a5a9 # Simple Links
+    - 4ba4480a-744a-454f-a704-a9972c15d2fb # Workshops
+    - 35b1f835-25a3-481f-adc0-4a3492ab7461 # Split Content with Image
+    - 54038017-3848-4054-81e7-308837d7328d # Split Content with Quote
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

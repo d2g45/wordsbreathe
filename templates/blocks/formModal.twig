@@ -1,0 +1,27 @@
+{% extends 'blocks/__base__' %}
+{% set label = item.backgroundColor.label is defined
+    ? item.backgroundColor.label|lower
+    : ''
+%}
+{% switch label %}
+{% case 'light' %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% case 'dark' %}
+    {% set backgroundClass = 'bg-neutral-800' %}
+    {% set textClass = 'text-neutral-200' %}
+{% default %}
+    {% set backgroundClass = 'bg-neutral-200' %}
+    {% set textClass = 'text-neutral-800' %}
+{% endswitch %}
+
+{% set classes = [backgroundClass, textClass] %}
+
+{% block block_content %}
+    <div class="w-full text-center">
+        <button type="button"
+            class="js-form-modal button button--default__blue">
+            {{ item.buttonText }}
+        </button>
+    </div>
+{% endblock %}

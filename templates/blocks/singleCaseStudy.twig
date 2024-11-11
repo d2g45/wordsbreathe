@@ -1,0 +1,30 @@
+{% extends 'blocks/__base__' %}
+
+{% set classes = ['block-wrapper--no-padding', 'group', 'lg:min-h-[300px]'] %}
+{% set caseStudy = item.caseStudy.one() %}
+{% set bgImage = caseStudy.defaultImage.one() %}
+
+{% block block_under %}
+    {% if bgImage %}
+        {% include 'components/background-image' with {
+            image: bgImage,
+            bg: {
+                fixed: true
+            },
+            overlay: {
+                blur: true
+            }
+        } %}
+    {% endif %}
+{% endblock %}
+
+{% block block_outer %}
+    <h2 class="gs-lazy">
+        <a href="{{ caseStudy.url }}"
+            title="View Project: {{ caseStudy.title }}"
+            rel="noopener"
+            class="md:group-hover:scale-120 duration-400 block-wrapper block text-center transition-all ease-in-out lg:group-hover:scale-110">
+            <span class="block-container block">{{ caseStudy.title }}</span>
+        </a>
+    </h2>
+{% endblock %}

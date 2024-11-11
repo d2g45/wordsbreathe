@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: socialNavigation
+instructions: null
+name: 'Social Navigation'
+searchable: false
+settings:
+  contentTable: ''
+  createButtonLabel: null
+  entryTypes:
+    - 9cd0ce47-61cf-42b0-ad72-e7500628c889 # Link
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

@@ -1,0 +1,29 @@
+@layer utilities {
+    .tab-background {
+        @apply hidden;
+
+        &--active {
+            @apply block;
+        }
+    }
+
+    .tab-navigation {
+        @apply border-b-2 border-transparent transition-all duration-300 ease-in-out;
+
+        &:hover {
+            @apply border-b-2 border-white/50;
+        }
+
+        &--active {
+            @apply border-b-2 border-white/80;
+        }
+    }
+
+    .tab-content {
+        @apply hidden;
+
+        &--active {
+            @apply block;
+        }
+    }
+}

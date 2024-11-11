@@ -1,0 +1,28 @@
+fieldLayouts:
+  4c242d8c-3dd9-48e2-8ee9-dae3a6aef9ec:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-11T02:26:48+00:00'
+            elementCondition: null
+            fieldUid: aa7f139c-1554-4510-bda0-8dbf9831b489 # Navigation
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fda02325-bb21-485c-9f1d-6c0067af84a4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 9638a407-ccfd-4c85-86e5-86864ad830c5
+        userCondition: null
+handle: header
+name: Header
+sortOrder: 1

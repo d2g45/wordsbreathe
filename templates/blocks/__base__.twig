@@ -1,0 +1,17 @@
+{% set classes = classes ?? [] %}
+
+{% block block_wrapper %}
+    <div data-name="{{ item.type }}"
+        class="gs-group block-wrapper {{ classes|join(' ') }}">
+        {% block block_under %}
+
+        {% endblock %}
+        {% block block_outer %}
+            <div class="block-container">
+                {% block block_content %}
+
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

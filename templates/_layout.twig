@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ craft.app.language }}">
+    <head>
+        {% block head %}
+            {% hook 'seo' %}
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta charset="utf-8" />
+            <meta content="width=device-width, initial-scale=1"
+                name="viewport" />
+            {# {% do seomatic.script.get('gtag').include(true) %} #}
+            {% include 'modules/core' %}
+            {% include 'modules/favicons' %}
+        {% endblock %}
+    </head>
+    <body class="ltr antialiased">
+        <a href="#main-content"
+            class="sr-only"
+            title="Skip the navigation and go directly to the content"
+            aria-label="Skip the navigation and go directly to the content">
+            Skip to Content
+        </a>
+        {# anything that needs to be at the top of the body #}
+        {% block body_top %}
+
+        {% endblock %}
+
+        {# usually the site header #}
+        {% block header %}
+            {% include 'modules/header' %}
+        {% endblock %}
+
+        <main id="main-content" class="relative z-0 w-full">
+            {# ideally, each section entry will override the content #}
+            {% block content %}
+
+            {% endblock %}
+        </main>
+
+        {# usually the site footer #}
+        {% block footer %}
+            {% include 'modules/footer' %}
+        {% endblock %}
+
+        {# {% include 'modals/newsletter' with {
+		            trigger: '.js-modal--newsletter',
+		            debug: false
+		        } %}
+		        {% include 'modals/login' with {
+		            trigger: '.js-modal--login'
+		        } %}
+		        {% include 'modals/reset' with {
+		            trigger: '.js-modal--reset'
+		        } %} #}
+        {% block modals %}
+
+        {% endblock %}
+
+        {% block body_bottom %}
+
+        {% endblock %}
+    </body>
+</html>

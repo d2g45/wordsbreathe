@@ -1,0 +1,44 @@
+{% set image = image ?? null %}
+{% set overlay =
+    {
+        show: true,
+        fixed: false,
+        blur: false,
+        type: 'default'
+    }|merge(overlay ?? {})
+%}
+
+{% set bg =
+    {
+        fixed: false
+    }|merge(bg ?? {})
+%}
+
+{% set overlayClasses = [] %}
+
+{% switch overlay.type %}
+{% case 'light' %}
+    {% set overlayClasses = overlayClasses|merge(['bg-image-overlay--light']) %}
+{% default %}
+    {% set overlayClasses =
+        overlayClasses|merge(['bg-image-overlay--default'])
+    %}
+{% endswitch %}
+
+{% if image %}
+    <div role="presentation"
+        class="group absolute inset-0 z-0 {{
+        not overlay.blur
+            ? 'pointer-events-none'
+        }}">
+        <div class="js-background-image bg-image {{ bg.fixed ? 'bg-fixed' }}"
+            data-src="{{ image.url }}"></div>
+
+        {% if overlay.show %}
+            <div class="bg-image-overlay {{ overlayClasses|join(' ') }} {{
+                overlay.blur
+                    ? 'bg-image-overlay--blur'
+                }}"></div>
+        {% endif %}
+    </div>
+{% endif %}
