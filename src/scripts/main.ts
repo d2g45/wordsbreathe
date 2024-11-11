@@ -1,3 +1,5 @@
+import "@glidejs/glide/dist/css/glide.core.min.css";
+import "@glidejs/glide/dist/css/glide.theme.min.css";
 import "@/styles/main.scss";
 import App from "./app";
 import Gallery from "./components/Gallery";
@@ -14,27 +16,27 @@ const components = [];
 
 // modals
 components.push({
-    selector: ".js-modal",
-    Component: Modal,
+  selector: ".js-modal",
+  Component: Modal,
 });
 
 components.push({
-    selector: ".js-tabs",
-    Component: Tabs,
+  selector: ".js-tabs",
+  Component: Tabs,
 });
 
 components.push({
-    selector: ".js-gallery",
-    Component: Gallery,
+  selector: ".js-gallery",
+  Component: Gallery,
 });
 
 components.push({
-    selector: ".js-form-modal",
+  selector: ".js-form-modal",
 });
 Component: FormModal;
 
 window.App = new App({
-    // modules: [header, images, animation],
-    modules: [images, animation],
-    components,
+  // modules: [header, images, animation],
+  modules: [images, animation],
+  components,
 });
