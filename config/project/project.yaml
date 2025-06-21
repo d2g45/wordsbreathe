@@ -1,11 +1,11 @@
-dateModified: 1750534591
+dateModified: 1750536423
 email:
   fromEmail: d2g450@gmail.com
   fromName: 'Words Breathe'
   replyToEmail: null
   template: null
   transportSettings:
-    apiKey: MAILGUN_APIKEY
+    apiKey: $MAILGUN_APIKEY
     domain: $MAILGUN_DOMAIN
     endpoint: $MAILGUN_ENDPOINT
   transportType: craft\mailgun\MailgunAdapter
