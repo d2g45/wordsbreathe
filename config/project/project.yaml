@@ -1,6 +1,6 @@
-dateModified: 1750536423
+dateModified: 1750537460
 email:
-  fromEmail: d2g450@gmail.com
+  fromEmail: $CRAFT_SYSTEM_EMAIL
   fromName: 'Words Breathe'
   replyToEmail: null
   template: null
