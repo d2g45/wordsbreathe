@@ -52,8 +52,12 @@
     {% endif %}
 
     <div class="form-container mx-auto max-w-5xl">
-        {% if craft.app.session.hasFlash('notice') %}
+        {% if craft.app.session.hasFlash('success') %}
             <p class="mb-4 rounded-md border border-solid border-green-600 bg-green-300 p-4 text-black">
+                {{ craft.app.session.getFlash('success') }}
+            </p>
+        {% elseif craft.app.session.hasFlash('notice') %}
+            <p class="mb-4 rounded-md border border-solid border-orange-600 bg-orange-300 p-4 text-black">
                 {{ craft.app.session.getFlash('notice') }}
             </p>
         {% elseif craft.app.session.hasFlash('error') %}
