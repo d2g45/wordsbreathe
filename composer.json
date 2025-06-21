@@ -4,8 +4,8 @@
   "require": {
     "c10d/craft-recaptcha": "^3.0",
     "clubstudioltd/craft-inline-svg": "^2.1",
-    "craftcms/ckeditor": "^4.3",
-    "craftcms/cms": "^5.0.0",
+    "craftcms/ckeditor": "4.9.0",
+    "craftcms/cms": "5.7.10",
     "craftcms/contact-form": "^3.1",
     "craftcms/contact-form-honeypot": "^2.1",
     "craftpulse/craft-colour-swatches": "5.1.0",
@@ -13,10 +13,10 @@
     "hybridinteractive/craft-contact-form-extensions": "^5.0",
     "nystudio107/craft-vite": "^5.0",
     "simplygoodwork/craft-block-usage": "^2.0",
-    "spicyweb/craft-embedded-assets": "^5.3",
+    "spicyweb/craft-embedded-assets": "5.4.3",
     "verbb/field-manager": "^4.0",
-    "verbb/super-table": "^4.0",
-    "verbb/tablemaker": "^5.0",
+    "verbb/super-table": "4.0.4",
+    "verbb/tablemaker": "5.0.5",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {

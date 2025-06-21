@@ -15,7 +15,7 @@ options:
   fontFamily:
     options:
       - default
-      - '''Raleway'', sans-serif'
+      - "'Raleway', sans-serif"
   fontSize:
     options:
       - 12

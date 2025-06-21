@@ -1,4 +1,4 @@
-dateModified: 1731292400
+dateModified: 1750533575
 email:
   fromEmail: d2g450@gmail.com
   fromName: 'Words Breathe'
@@ -92,6 +92,13 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+    settings:
+      allowAttachments: ''
+      allowedMessageFields: null
+      prependSender: 'On behalf of'
+      prependSubject: 'New message from Words Breathe'
+      successFlashMessage: 'Your message has been sent.'
+      toEmail: $CRAFT_SYSTEM_EMAIL
   contact-form-extensions:
     edition: standard
     enabled: true
@@ -136,7 +143,7 @@ system:
   edition: solo
   live: true
   name: 'Words Breathe'
-  schemaVersion: 5.3.0.2
+  schemaVersion: 5.7.0.3
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
