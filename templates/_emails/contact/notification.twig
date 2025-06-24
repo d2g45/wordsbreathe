@@ -5,12 +5,10 @@
 <p>
 Name: {{ submission.fromName }}<br>
 Email: {{ submission.fromEmail }}<br>
-Subject: {{ submission.subject }}<br>
-Message:
-
+Subject: {{ submission.subject }}<br><br>
 {% if submission.message is defined %}
     {% for key, value in submission.message %}
-        {{ key }}:
+        {{ key|capitalize }}:
         {% if value is iterable %}
             {% for item in value %}
                 {{ item|nl2br }}
