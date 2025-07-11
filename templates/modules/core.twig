@@ -5,4 +5,5 @@
     rel="stylesheet" />
 
 {{ craft.vite.includeCriticalCssTags() }}
-{{ craft.vite.script('src/scripts/main.ts') }}
+{# pass false to load css synchronously - CSS is now blocking #}
+{{ craft.vite.script('src/scripts/main.ts', false) }}
