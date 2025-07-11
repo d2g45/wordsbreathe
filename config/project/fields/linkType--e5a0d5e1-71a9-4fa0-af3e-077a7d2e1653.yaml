@@ -4,6 +4,7 @@ instructions: null
 name: 'Link Type'
 searchable: false
 settings:
+  customOptions: false
   options:
     -
       __assoc__:
@@ -13,6 +14,12 @@ settings:
         -
           - value
           - facebook
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
         -
           - default
           - ''
@@ -24,6 +31,29 @@ settings:
         -
           - value
           - instagram
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Tiktok
+        -
+          - value
+          - tiktok
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
         -
           - default
           - ''

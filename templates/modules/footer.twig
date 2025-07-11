@@ -9,21 +9,23 @@
             </div>
 
             {% if socialNavigation|length %}
-                <nav class="grid grid-cols-2 grid-rows-1 gap-4 pl-2">
+                <nav class="flex flex-row gap-4 pl-2">
                     {% for item in socialNavigation %}
-                        <a href="{{ item.linkUrl }}"
-                            target="_blank"
-                            rel="noopener"
-                            class="group h-6 w-5 overflow-hidden fill-current">
-                            <div class="grid w-full origin-center grid-cols-1 grid-rows-1 transition-transform duration-150 ease-in-out group-hover:-translate-y-6">
-                                {% include 'svgs/' ~ item.linkType with {
-                                    svgClass: 'top'
-                                } %}
-                                {% include 'svgs/' ~ item.linkType with {
-                                    svgClass: 'bottom'
-                                } %}
-                            </div>
-                        </a>
+                        {% if item.linkType != '' %}
+                            <a href="{{ item.linkUrl }}"
+                                target="_blank"
+                                rel="noopener"
+                                class="group size-6 overflow-hidden fill-current">
+                                <div class="grid w-full origin-center grid-cols-1 grid-rows-1 transition-transform duration-150 ease-in-out group-hover:-translate-y-6">
+                                    {% include 'svgs/' ~ item.linkType with {
+                                        svgClass: 'top'
+                                    } %}
+                                    {% include 'svgs/' ~ item.linkType with {
+                                        svgClass: 'bottom'
+                                    } %}
+                                </div>
+                            </a>
+                        {% endif %}
                     {% endfor %}
                 </nav>
             {% endif %}
