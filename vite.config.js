@@ -49,6 +49,11 @@ export default ({ command, mode }) => {
     server: {
       host: "0.0.0.0",
       port: 3000,
+      allowedHosts: ['.ddev.site'],
+      origin: `${process.env.PRIMARY_SITE_URL}:3000`,
+      cors: {
+        origin: /https?:\/\/([a-z0-9-]+\.)?ddev\.site(:\d+)?$/
+      }
     },
 
     plugins: [
