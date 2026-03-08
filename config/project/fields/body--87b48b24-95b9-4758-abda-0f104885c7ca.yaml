@@ -6,15 +6,140 @@ searchable: true
 settings:
   availableTransforms: ''
   availableVolumes: '*'
-  ckeConfig: e34c4ffe-f62d-4cba-bb09-186b143dae66 # Default
-  createButtonLabel: null
+  css: null
   defaultTransform: null
   enableSourceEditingForNonAdmins: false
+  fullGraphqlData: false
+  headingLevels:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  js: null
+  options:
+    __assoc__:
+      -
+        - alignment
+        -
+          __assoc__:
+            -
+              - options
+              -
+                - left
+                - center
+                - right
+      -
+        - fontFamily
+        -
+          __assoc__:
+            -
+              - options
+              -
+                - default
+                - "'Raleway', sans-serif"
+      -
+        - fontSize
+        -
+          __assoc__:
+            -
+              - options
+              -
+                - 12
+                - 14
+                - 16
+                - 18
+                - 20
+                - 24
+                - 30
+                - 36
+                - 40
+      -
+        - style
+        -
+          __assoc__:
+            -
+              - definitions
+              -
+                -
+                  __assoc__:
+                    -
+                      - classes
+                      -
+                        - red-heading
+                    -
+                      - element
+                      - h2
+                    -
+                      - name
+                      - 'Red heading'
+                -
+                  __assoc__:
+                    -
+                      - classes
+                      -
+                        - vibrant-code
+                    -
+                      - element
+                      - pre
+                    -
+                      - name
+                      - 'Vibrant code'
+                -
+                  __assoc__:
+                    -
+                      - classes
+                      -
+                        - marker
+                    -
+                      - element
+                      - span
+                    -
+                      - name
+                      - Marker
   purifierConfig: null
   purifyHtml: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   showWordCount: false
+  toolbar:
+    - undo
+    - redo
+    - sourceEditing
+    - '|'
+    - fontFamily
+    - fontSize
+    - style
+    - heading
+    - '|'
+    - alignment
+    - '|'
+    - blockQuote
+    - code
+    - codeBlock
+    - '|'
+    - bold
+    - italic
+    - underline
+    - strikethrough
+    - subscript
+    - superscript
+    - '|'
+    - bulletedList
+    - numberedList
+    - outdent
+    - indent
+    - horizontalLine
+    - '|'
+    - link
+    - bookmark
+    - '|'
+    - insertImage
+    - mediaEmbed
+    - insertTable
+    - htmlEmbed
+    - createEntry
   wordLimit: null
 translationKeyFormat: null
 translationMethod: none

@@ -15,5 +15,6 @@ composer install
 ./craft clear-caches/compiled-templates --interactive=0
 ./craft clear-caches/cp-resources --interactive=0
 ./craft clear-caches/data --interactive=0
+./craft resave/all
 
 npm run prod

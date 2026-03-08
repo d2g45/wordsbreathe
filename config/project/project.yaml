@@ -1,4 +1,4 @@
-dateModified: 1752208851
+dateModified: 1772994798
 email:
   fromEmail: $CRAFT_SYSTEM_EMAIL
   fromName: 'Words Breathe'
@@ -32,7 +32,6 @@ meta:
     4cd108b9-8609-44cf-a28e-9ffe48def736: Quote # Quote
     4ead00ff-db89-45c9-9f8d-800fa52e8cf4: Label # Label
     6c69a543-e926-4875-8f7f-81b29a45538f: URL # URL
-    7d0d1866-c791-4d01-bdd0-7f776c670f00: Simple # Simple
     7d07ad6e-54cc-4dba-8408-001560384b0f: SEO # SEO
     8d790e43-b068-4c70-89e2-faaf96412ed5: Interior # Interior
     9c3360db-394f-4223-8000-354eeb23f28a: Gallery # Gallery
@@ -78,7 +77,6 @@ meta:
     dd201601-6c8b-4279-ad10-8c9bbf9bc06a: 'Hero Split' # Hero Split
     e081504e-29f9-48eb-9276-202011a5a9be: Pages # Pages
     e5a0d5e1-71a9-4fa0-af3e-077a7d2e1653: 'Link Type' # Link Type
-    e34c4ffe-f62d-4cba-bb09-186b143dae66: Default # Default
     e57c96e1-e4af-4fd1-9692-376349212ce1: 'Background Image' # Background Image
     ecdb458f-03d7-4123-bdd8-bf7ce6881b06: Pages # Pages
 plugins:
@@ -89,7 +87,7 @@ plugins:
   ckeditor:
     edition: standard
     enabled: true
-    schemaVersion: 3.0.0.0
+    schemaVersion: 5.0.0.1
   colour-swatches:
     edition: standard
     enabled: true
@@ -172,7 +170,7 @@ system:
   edition: solo
   live: true
   name: 'Words Breathe'
-  schemaVersion: 5.7.0.3
+  schemaVersion: 5.9.0.8
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
