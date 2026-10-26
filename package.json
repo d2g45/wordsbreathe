@@ -2,7 +2,7 @@
     "name": "words-breathe",
     "version": "1.1.1",
     "description": "Words Breathe Site",
-    "main": "vite.config.js",
+    "main": "vite.config.mjs",
     "scripts": {
         "dev": "npx vite dev",
         "prod": "npx vite build"
@@ -40,9 +40,9 @@
         "tailwindcss": "^3.4.19",
         "terser": "^5.51.2",
         "vite-plugin-pwa": "^0.20.0",
-        "vite-plugin-restart": "^0.4.2",
+        "vite-plugin-restart": "^2.0.0",
         "vite-plugin-webfont-dl": "^3.13.1",
-        "vite-tsconfig-paths": "^4.3.2"
+        "vite-tsconfig-paths": "^6.1.1"
     },
     "dependencies": {
         "@glidejs/glide": "^3.7.1",
