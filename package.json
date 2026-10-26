@@ -50,5 +50,11 @@
         "gsap": "./node_packages/gsap-bonus.tgz",
         "vite": "^5.3.2",
         "vite-plugin-compression": "^0.5.1"
+    },
+    "allowScripts": {
+        "esbuild@0.21.5": true,
+        "core-js": false,
+        "@parcel/watcher": false,
+        "fsevents": false
     }
 }
