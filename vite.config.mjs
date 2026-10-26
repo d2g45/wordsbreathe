@@ -80,6 +80,10 @@ export default ({ command, mode }) => {
 
       VitePWA({
         registerType: "autoUpdate",
+        // Since 0.21.2 the plugin fills in its own theme_color (#42b883) when none is set.
+        manifest: {
+          theme_color: undefined,
+        },
         devOptions: {
           enabled: true,
         },
