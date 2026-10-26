@@ -34,6 +34,8 @@ export default ({ command, mode }) => {
 
     esbuild: {
       drop: mode === "production" ? ["console", "debugger"] : [],
+      // Vite 7.2+ defaults to "none", which strips the Glide and GSAP license comments.
+      legalComments: "inline",
     },
 
     resolve: {
