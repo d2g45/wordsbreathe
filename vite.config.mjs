@@ -34,6 +34,8 @@ export default ({ command, mode }) => {
 
     esbuild: {
       drop: mode === "production" ? ["console", "debugger"] : [],
+      // Vite 7.2+ defaults to "none", which strips the Glide and GSAP license comments.
+      legalComments: "inline",
     },
 
     resolve: {
@@ -80,6 +82,10 @@ export default ({ command, mode }) => {
 
       VitePWA({
         registerType: "autoUpdate",
+        // Since 0.21.2 the plugin fills in its own theme_color (#42b883) when none is set.
+        manifest: {
+          theme_color: undefined,
+        },
         devOptions: {
           enabled: true,
         },
