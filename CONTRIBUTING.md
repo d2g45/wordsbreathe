@@ -4,7 +4,6 @@
 
 ### Read first
 
-- `node_packages/gsap-bonus.tgz` holds GSAP's bonus build and is gitignored by `*.tgz`. A fresh checkout can't `npm ci` until it is copied in from an existing checkout. The server keeps its own copy.
 - `eslint` is pinned exactly. The pin dates to the initial commit and records no reason.
 - None of the lint and format tooling runs. There is no ESLint config and no Prettier config, so `eslint`, `@typescript-eslint/*`, `prettier-plugin-tailwindcss` and `@zackad/prettier-plugin-twig-melody` are never loaded. `fs-extra` is imported nowhere, and `vite-plugin-webfont-dl` is commented out in `vite.config.mjs`.
 - `vite.config.mjs` has to stay ESM (`.mjs`). The package has no `"type": "module"`, because `postcss.config.js` and `tailwind.config.js` use `module.exports`. A `.js` config is bundled as CommonJS, and the ESM-only plugins (`vite-tsconfig-paths` 5+, `vite-plugin-restart` 1+) then fail to load.
@@ -42,15 +41,16 @@ The two can run at the same time.
 
 ```sh
 git worktree add <dir> main
-mkdir -p <dir>/node_packages && cp node_packages/gsap-bonus.tgz <dir>/node_packages/
 cd <dir> && npm ci
 ```
+
+Commits before GSAP moved to the public npm package install it from `node_packages/gsap-bonus.tgz`, which is gitignored. For those, copy the tarball in from an existing checkout before `npm ci`: `mkdir -p <dir>/node_packages && cp node_packages/gsap-bonus.tgz <dir>/node_packages/`.
 
 The build reads no `VITE_` variables, so it needs no `.env`.
 
 ### Clean-tree CI replay
 
-There is no CI. The deploy runs `build.sh` on the server: `npm ci`, then `composer install` and the Craft migrations, then `npm run prod`. To replay the npm half, make a fresh worktree of the branch, copy in the GSAP tarball as above, and run `npm ci && npm run prod`.
+There is no CI. The deploy runs `build.sh` on the server: `npm ci`, then `composer install` and the Craft migrations, then `npm run prod`. To replay the npm half, make a fresh worktree of the branch and run `npm ci && npm run prod`.
 
 ### After bumping X
 
