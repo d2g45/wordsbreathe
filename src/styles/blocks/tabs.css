@@ -1,10 +1,10 @@
 @layer utilities {
     .tab-background {
         @apply hidden;
+    }
 
-        &--active {
-            @apply block;
-        }
+    .tab-background--active {
+        @apply block;
     }
 
     .tab-navigation {
@@ -13,17 +13,17 @@
         &:hover {
             @apply border-b-2 border-white/50;
         }
+    }
 
-        &--active {
-            @apply border-b-2 border-white/80;
-        }
+    .tab-navigation--active {
+        @apply border-b-2 border-white/80;
     }
 
     .tab-content {
         @apply hidden;
+    }
 
-        &--active {
-            @apply block;
-        }
+    .tab-content--active {
+        @apply block;
     }
 }
