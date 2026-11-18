@@ -10,7 +10,7 @@
 - `vite.config.mjs` sets `esbuild.legalComments` to `"inline"`. From Vite 7.2 the default strips `/*! */` comments, which removes the Glide.js and GSAP license banners from the modern bundle.
 - `vite.config.mjs` sets `manifest.theme_color` to `undefined` on purpose. Since 0.21.2, `vite-plugin-pwa` fills in its own default (`#42b883`) when none is set, and the site has never had a theme colour. The build warns that `theme_color` is missing; that is expected.
 - `workbox-build` 7.4.1 bundles `sw.js` with `@trickfilm400/rollup-plugin-off-main-thread@3.0.0-pre1`, an unsigned pre-release fork of `@surma/rollup-plugin-off-main-thread` published by one person and adopted upstream in GoogleChrome/workbox#3446. Its runtime files were diffed against `@surma` 2.2.3 in October 2026 and matched apart from line endings and one URL in an error message. Diff the tarballs again when Workbox moves to another version (GoogleChrome/workbox#3579).
-- `typescript` is not a direct dependency. It is installed as a peer of `@typescript-eslint/*`, and the typecheck gate below depends on it.
+- `typescript` is a direct devDependency because the typecheck gate below depends on it. Keep it when removing `@typescript-eslint/*`.
 
 ### Setup
 
@@ -32,7 +32,7 @@
 There are no tests, no lint script, no CI and no git hooks. The gates are:
 
 - `npx vite build`, which must pass.
-- `npx tsc --noEmit -p .`, which already fails on `main` with two errors: TS7016 for `@glidejs/glide` in `src/scripts/components/Gallery.ts`, and TS2339 for `window.App` in `src/scripts/main.ts`. Any other error is new.
+- `npx tsc --noEmit -p .`, which must pass with no errors.
 
 The two can run at the same time.
 

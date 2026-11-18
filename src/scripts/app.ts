@@ -1,8 +1,8 @@
-import { AppConfig, BaseComponent, BaseModule } from "./types";
+import type { AppConfig, BaseModule, ComponentConfig } from "./types";
 
 export default class App {
   modules: Array<BaseModule> = [];
-  components: Array<any> = [];
+  components: Array<ComponentConfig> = [];
 
   constructor(config: AppConfig = {}) {
     this.modules = config?.modules ?? [];
@@ -17,7 +17,7 @@ export default class App {
 
   private initComponents(): void {
     this.components.map((item) => {
-      const elements = [...document.querySelectorAll(item.selector)];
+      const elements = [...document.querySelectorAll<HTMLElement>(item.selector)];
       // console.log(item, elements);
 
       elements?.map((element) => new item.Component(element));

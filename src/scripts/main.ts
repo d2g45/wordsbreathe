@@ -8,9 +8,16 @@ import Tabs from "./components/Tabs";
 import images from "./modules/images";
 import animation from "./modules/animation";
 import FormModal from "./components/FormModal";
+import type { ComponentConfig } from "./types";
+
+declare global {
+  interface Window {
+    App: App;
+  }
+}
 
 // configure components here
-const components = [];
+const components: ComponentConfig[] = [];
 
 // modals
 components.push({
@@ -30,8 +37,8 @@ components.push({
 
 components.push({
   selector: ".js-form-modal",
+  Component: FormModal,
 });
-Component: FormModal;
 
 window.App = new App({
   // modules: [header, images, animation],

@@ -19,4 +19,4 @@ Before changing `package.json` or the lockfile, read the "Dependency updates" se
 There are no tests and no lint. The gates are:
 
 - `npx vite build`, which must pass.
-- `npx tsc --noEmit -p .`, which already fails on `main` with two errors: TS7016 in `src/scripts/components/Gallery.ts` and TS2339 in `src/scripts/main.ts`. Any other error is new.
+- `npx tsc --noEmit -p .`, which must pass with no errors.

@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "allowUnusedLabels": false,
     "baseUrl": "./src",
     "declaration": true,
     "esModuleInterop": true,
@@ -13,8 +14,7 @@
     "noImplicitAny": true,
     "outDir": "./dist",
     "paths": {
-      "@/*": ["./*", "./js/*", "./sass/*"],
-      "@n/*": ["./node_modules/*"]
+      "@/*": ["./*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
