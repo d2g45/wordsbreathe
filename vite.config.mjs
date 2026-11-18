@@ -1,6 +1,7 @@
 import path from "path";
 import { defineConfig, loadEnv } from "vite";
 import legacy from "@vitejs/plugin-legacy";
+import tailwindcss from "@tailwindcss/vite";
 import ViteRestart from "vite-plugin-restart";
 // import critical from "rollup-plugin-critical";
 import viteCompression from "vite-plugin-compression";
@@ -25,10 +26,6 @@ export default ({ command, mode }) => {
           app: "./src/scripts/main.ts",
         },
       },
-
-      commonjsOptions: {
-        include: ["tailwind.config.js", "node_modules/**"],
-      },
     },
 
     esbuild: {
@@ -43,10 +40,6 @@ export default ({ command, mode }) => {
       },
     },
 
-    optimizeDeps: {
-      include: ["./tailwind.config.js"],
-    },
-
     server: {
       host: "0.0.0.0",
       port: 3000,
@@ -58,6 +51,7 @@ export default ({ command, mode }) => {
     },
 
     plugins: [
+      tailwindcss(),
       tsconfigPaths(),
       ViteRestart({
         reload: ["./templates/**/*"],

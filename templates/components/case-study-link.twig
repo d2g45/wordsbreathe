@@ -1,5 +1,5 @@
 {% set bgImage = caseStudy.defaultImage.one() %}
-<div class="gs-lazy group relative flex min-h-[200px] flex-col items-center justify-center p-4 text-center max-lg:bg-black max-lg:bg-opacity-10 lg:items-start lg:justify-start">
+<div class="gs-lazy group relative flex min-h-[200px] flex-col items-center justify-center p-4 text-center max-lg:bg-black/10 lg:items-start lg:justify-start">
     <a href="{{ caseStudy.url }}"
         title="View Project: {{ caseStudy.title }}"
         rel="noopener"
@@ -23,7 +23,7 @@
                     alt="{{ bgImage.alt ?? bgImage.title }}" />
             </div>
         {% else %}
-            <div class="hidden h-0 w-full bg-black bg-opacity-10 lg:block lg:h-full"></div>
+            <div class="hidden h-0 w-full bg-black/10 lg:block lg:h-full"></div>
         {% endif %}
     </a>
 </div>
