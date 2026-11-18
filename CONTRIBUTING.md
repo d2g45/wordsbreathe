@@ -24,7 +24,7 @@
 
 - `--cooldown 7` on every run.
 - Holds:
-  - `tailwindcss` stays on major 3. Tailwind 4 does not support Sass, and the styles drive Tailwind from SCSS (`@tailwind` and `@apply` in `src/styles/**/*.scss`). Move it within 3 only, with `--target minor`, or reject it on major runs with `--reject tailwindcss`.
+  - `tailwindcss` stays on major 3 until #5. The styles use Tailwind 3's CSS directives (`@tailwind`, `@layer` and `@apply` in `src/styles/**/*.css`) and its `tailwindcss/nesting` PostCSS plugin, and `tailwind.config.js` is a v3 JavaScript config; Tailwind 4 replaces all of these. Move it within 3 only, with `--target minor`, or reject it on major runs with `--reject tailwindcss`.
   - `vite` stays on major 7 until `vite-plugin-restart` supports Vite 8 (antfu/vite-plugin-restart#32). `@vitejs/plugin-legacy` follows Vite's major, so it moves with `vite` in the same install.
 - `--peer --format group` with `--cooldown` can leave rows out. Check the newest version past the gate per package rather than trusting the grouped list.
 
@@ -54,7 +54,7 @@ There is no CI. The deploy runs `build.sh` on the server: `npm ci`, then `compos
 
 ### After bumping X
 
-- **Vite, `@vitejs/plugin-legacy`, `vite-plugin-pwa`, `vite-plugin-compression`, Sass, PostCSS, Tailwind or Autoprefixer:** build on the HEAD worktree and on the branch, and compare `web/dist`. Craft reads `web/dist/.vite/manifest.json` (`config/vite.php`), so the manifest has to stay at that path with the `src/scripts/main.ts` entry.
+- **Vite, `@vitejs/plugin-legacy`, `vite-plugin-pwa`, `vite-plugin-compression`, PostCSS, Tailwind or Autoprefixer:** build on the HEAD worktree and on the branch, and compare `web/dist`. Craft reads `web/dist/.vite/manifest.json` (`config/vite.php`), so the manifest has to stay at that path with the `src/scripts/main.ts` entry.
 - **`vite-plugin-pwa`:** check `web/dist/sw.js`, its precache list, `registerSW.js` and `manifest.webmanifest`.
 - **`vite-plugin-restart`:** with the dev server running, edit a `.twig` file and confirm the page reloads.
 

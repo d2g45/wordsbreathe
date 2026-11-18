@@ -16,7 +16,6 @@ export default ({ command, mode }) => {
 
   return defineConfig({
     base: command === "serve" ? "" : "/dist",
-    css: { preprocessorOptions: { scss: { charset: false } } },
     build: {
       // emptyOutDir: true,
       manifest: true,

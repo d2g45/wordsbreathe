@@ -1,7 +1,5 @@
-@use "utils";
-@use "components";
-@use "modules";
-@use "blocks";
+@import "./components/index.css";
+@import "./blocks/index.css";
 
 @tailwind base;
 @tailwind components;
