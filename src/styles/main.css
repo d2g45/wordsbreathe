@@ -1,9 +1,58 @@
+@import "tailwindcss";
+
+/*
+  Glide's CSS goes in the components layer. Unlayered, it would beat every
+  Tailwind layer, including the .glide__arrow styles below. Importing it here
+  rather than from main.ts also gets it vendor-prefixed.
+*/
+@import "@glidejs/glide/dist/css/glide.core.min.css" layer(components);
+@import "@glidejs/glide/dist/css/glide.theme.min.css" layer(components);
+
 @import "./components/index.css";
 @import "./blocks/index.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* contact.twig builds these as `hover:text-{{ info.class }}`, and Modal.ts toggles overflow-hidden on <body>. */
+@source inline("{hover:,}text-{facebook,instagram,vimeo,youtube,oldred}");
+@source inline("overflow-hidden");
+
+@theme {
+  --font-*: initial;
+  --font-sans: "Raleway", sans-serif;
+  --font-serif: "Raleway", sans-serif;
+
+  --color-oldred: #ff6961;
+  --color-facebook: #1778f2;
+  --color-youtube: #f00;
+  --color-vimeo: #19b7ea;
+  --color-instagram: #3f729b;
+
+  /* rem like Tailwind's own breakpoints: v4 can't sort px and rem breakpoints against each other. */
+  --breakpoint-2xl: 90rem; /* 1440px */
+  --breakpoint-3xl: 100rem; /* 1600px */
+  --breakpoint-4xl: 120rem; /* 1920px */
+  --breakpoint-lorge: 160rem; /* 2560px */
+  --breakpoint-yuge: 240rem; /* 3840px */
+}
+
+/*
+  Tailwind 3 defaults that Tailwind 4 changed. Without these, borders with no
+  colour class turn currentColor instead of gray-200, and buttons lose
+  cursor: pointer.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 @layer base {
   body {

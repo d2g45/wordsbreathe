@@ -1,5 +1,3 @@
-import "@glidejs/glide/dist/css/glide.core.min.css";
-import "@glidejs/glide/dist/css/glide.theme.min.css";
 import "@/styles/main.css";
 import App from "./app";
 import Gallery from "./components/Gallery";

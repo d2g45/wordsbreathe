@@ -77,7 +77,7 @@
         hr {
             @apply my-4 block border-t border-solid border-current md:my-8 lg:my-12;
 
-            &::last-child {
+            &:last-child {
                 @apply mb-0;
             }
         }

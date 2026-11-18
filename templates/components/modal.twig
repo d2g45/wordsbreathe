@@ -7,7 +7,7 @@
     class="js-modal fixed inset-0 z-50 {{ debug ? '' : 'hidden' }}"
     data-open-selector="{{ trigger }}">
     {% block modal_background %}
-        <div class="js-modal-overlay absolute inset-0 h-full w-full backdrop-blur"></div>
+        <div class="js-modal-overlay absolute inset-0 h-full w-full backdrop-blur-sm"></div>
     {% endblock %}
     {% block modal_interior %}
         <div class="absolute bg-neutral-900 p-4 max-sm:inset-x-2 max-sm:bottom-2 max-sm:top-16 sm:left-1/2 sm:top-1/2 sm:w-full sm:max-w-lg sm:-translate-x-1/2 sm:-translate-y-1/2">

@@ -6,7 +6,7 @@
 
 - `eslint` is pinned exactly. The pin dates to the initial commit and records no reason.
 - None of the lint and format tooling runs. There is no ESLint config and no Prettier config, so `eslint`, `@typescript-eslint/*`, `prettier-plugin-tailwindcss` and `@zackad/prettier-plugin-twig-melody` are never loaded. `fs-extra` is imported nowhere, and `vite-plugin-webfont-dl` is commented out in `vite.config.mjs`.
-- `vite.config.mjs` has to stay ESM (`.mjs`). The package has no `"type": "module"`, because `postcss.config.js` and `tailwind.config.js` use `module.exports`. A `.js` config is bundled as CommonJS, and the ESM-only plugins (`vite-tsconfig-paths` 5+, `vite-plugin-restart` 1+) then fail to load.
+- `vite.config.mjs` has to stay ESM (`.mjs`). The package has no `"type": "module"`, so a `.js` config is bundled as CommonJS, and the ESM-only plugins (`vite-tsconfig-paths` 5+, `vite-plugin-restart` 1+) then fail to load.
 - `vite.config.mjs` sets `esbuild.legalComments` to `"inline"`. From Vite 7.2 the default strips `/*! */` comments, which removes the Glide.js and GSAP license banners from the modern bundle.
 - `vite.config.mjs` sets `manifest.theme_color` to `undefined` on purpose. Since 0.21.2, `vite-plugin-pwa` fills in its own default (`#42b883`) when none is set, and the site has never had a theme colour. The build warns that `theme_color` is missing; that is expected.
 - `workbox-build` 7.4.1 bundles `sw.js` with `@trickfilm400/rollup-plugin-off-main-thread@3.0.0-pre1`, an unsigned pre-release fork of `@surma/rollup-plugin-off-main-thread` published by one person and adopted upstream in GoogleChrome/workbox#3446. Its runtime files were diffed against `@surma` 2.2.3 in October 2026 and matched apart from line endings and one URL in an error message. Diff the tarballs again when Workbox moves to another version (GoogleChrome/workbox#3579).
@@ -24,7 +24,6 @@
 
 - `--cooldown 7` on every run.
 - Holds:
-  - `tailwindcss` stays on major 3 until #5. The styles use Tailwind 3's CSS directives (`@tailwind`, `@layer` and `@apply` in `src/styles/**/*.css`) and its `tailwindcss/nesting` PostCSS plugin, and `tailwind.config.js` is a v3 JavaScript config; Tailwind 4 replaces all of these. Move it within 3 only, with `--target minor`, or reject it on major runs with `--reject tailwindcss`.
   - `vite` stays on major 7 until `vite-plugin-restart` supports Vite 8 (antfu/vite-plugin-restart#32). `@vitejs/plugin-legacy` follows Vite's major, so it moves with `vite` in the same install.
 - `--peer --format group` with `--cooldown` can leave rows out. Check the newest version past the gate per package rather than trusting the grouped list.
 
@@ -54,7 +53,7 @@ There is no CI. The deploy runs `build.sh` on the server: `npm ci`, then `compos
 
 ### After bumping X
 
-- **Vite, `@vitejs/plugin-legacy`, `vite-plugin-pwa`, `vite-plugin-compression`, PostCSS, Tailwind or Autoprefixer:** build on the HEAD worktree and on the branch, and compare `web/dist`. Craft reads `web/dist/.vite/manifest.json` (`config/vite.php`), so the manifest has to stay at that path with the `src/scripts/main.ts` entry.
+- **Vite, `@vitejs/plugin-legacy`, `vite-plugin-pwa`, `vite-plugin-compression`, `tailwindcss` or `@tailwindcss/vite`:** build on the HEAD worktree and on the branch, and compare `web/dist`. Craft reads `web/dist/.vite/manifest.json` (`config/vite.php`), so the manifest has to stay at that path with the `src/scripts/main.ts` entry.
 - **`vite-plugin-pwa`:** check `web/dist/sw.js`, its precache list, `registerSW.js` and `manifest.webmanifest`.
 - **`vite-plugin-restart`:** with the dev server running, edit a `.twig` file and confirm the page reloads.
 
