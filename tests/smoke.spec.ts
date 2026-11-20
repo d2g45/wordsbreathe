@@ -108,3 +108,61 @@ test("the modal opens, and closes by button, overlay and Escape", async ({ page 
   await page.keyboard.press("Escape");
   await expect(modal).toBeHidden();
 });
+
+test("lazy images and backgrounds get their real source", async ({ page }) => {
+  await openPage(page, "/");
+
+  // images.ts copies data-src into src and into background-image. Both used to
+  // run from a listener added while DOMContentLoaded was being dispatched, so
+  // this is what breaks if App's start-up stops reaching them (#21).
+  const unresolved = await page.evaluate(() => {
+    const images = [...document.querySelectorAll<HTMLImageElement>(".js-image")];
+    const backgrounds = [...document.querySelectorAll<HTMLElement>(".js-background-image")];
+
+    return {
+      counted: images.length + backgrounds.length,
+      blank: [
+        ...images.filter((el) => el.dataset.src && !el.getAttribute("src")),
+        ...backgrounds.filter((el) => el.dataset.src && !el.style.backgroundImage),
+      ].map((el) => el.dataset.src ?? ""),
+    };
+  });
+
+  expect(unresolved.counted, "the home page has no lazy images to check").toBeGreaterThan(0);
+  expect(unresolved.blank).toEqual([]);
+});
+
+test("App starts its modules and components when the document has already loaded", async ({
+  page,
+}) => {
+  await openPage(page, "/test/components");
+
+  // The legacy bundle loads through SystemJS and can finish after
+  // DOMContentLoaded (#21), where a listener added then never runs. Build a
+  // second App at that point, with probes in place of the real modules and
+  // components. Before the readiness helper, neither probe ran.
+  const started = await page.evaluate(() => {
+    const App = window.App.constructor as new (config: unknown) => unknown;
+    const calls: string[] = [];
+
+    new App({
+      modules: [{ init: () => calls.push("module"), destroy: () => {} }],
+      components: [
+        {
+          selector: "body",
+          Component: class {
+            constructor() {
+              calls.push("component");
+            }
+            destroy() {}
+          },
+        },
+      ],
+    });
+
+    return { readyState: document.readyState, calls };
+  });
+
+  expect(started.readyState, "the document was still parsing").not.toBe("loading");
+  expect(started.calls).toEqual(["module", "component"]);
+});

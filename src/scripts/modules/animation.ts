@@ -1,3 +1,4 @@
+import { offReady, onReady } from "@/scripts/ready";
 import { BaseModule } from "@/scripts/types";
 import gsap from "../lib/gsap";
 
@@ -46,12 +47,11 @@ const initLazy = (): void => {
 };
 
 const init = (): void => {
-  // initLazy();
-  addEventListener("DOMContentLoaded", initLazy);
+  onReady(initLazy);
 };
 
 const destroy = (): void => {
-  removeEventListener("DOMContentLoaded", initLazy);
+  offReady(initLazy);
 };
 
 const animation: BaseModule = {
