@@ -1,0 +1,20 @@
+version: 2
+updates:
+  # Workflow files only. npm is updated by hand with `ncu --cooldown 7` and the holds
+  # in CONTRIBUTING.md, so it is deliberately not listed here.
+  - package-ecosystem: "github-actions"
+    # "/" is correct: Dependabot reads .github/workflows from the repository root.
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # The same 7 days that .npmrc's min-release-age applies to npm. Without this,
+    # Dependabot's own default is 3 days. semver-*-days is not supported for actions.
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "ci"
+      include: "scope"

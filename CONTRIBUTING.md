@@ -11,13 +11,14 @@
 - `vite.config.mjs` sets `manifest.theme_color` to `undefined` on purpose. Since 0.21.2, `vite-plugin-pwa` fills in its own default (`#42b883`) when none is set, and the site has never had a theme colour. The build warns that `theme_color` is missing; that is expected.
 - `workbox-build` 7.4.1 bundles `sw.js` with `@trickfilm400/rollup-plugin-off-main-thread@3.0.0-pre1`, an unsigned pre-release fork of `@surma/rollup-plugin-off-main-thread` published by one person and adopted upstream in GoogleChrome/workbox#3446. Its runtime files were diffed against `@surma` 2.2.3 in October 2026 and matched apart from line endings and one URL in an error message. Diff the tarballs again when Workbox moves to another version (GoogleChrome/workbox#3579).
 - `typescript` is a direct devDependency because the typecheck gate below depends on it. Keep it when removing `@typescript-eslint/*`.
+- The repository requires SHA-pinned actions, so `.github/workflows/ci.yml` pins `actions/checkout` and `actions/setup-node` by commit SHA with the version in a trailing comment. A tag there fails the run. Dependabot bumps them (`.github/dependabot.yml`); `ncu` does not read workflow files. To pin one by hand: `gh api repos/actions/<name>/git/ref/tags/<tag> -q .object.sha`.
 
 ### Setup
 
 - `.npmrc` sets `min-release-age=7`. npm applies it from 11.10 on, while Node 22 ships npm 10, so run updates with npm 11.10 or later. `npm ci` ignores the gate, so the deploy build is unaffected.
 - Vite 7 needs Node 20.19+ or 22.12+. `.nvmrc` says `22`, so the Node 22 that `nvm use` picks on the server has to be 22.12 or later.
 - npm-check-updates does not read `min-release-age`. Pass `--cooldown 7`.
-- There is no Dependabot config, and Dependabot alerts are off for the repository.
+- `.github/dependabot.yml` runs Dependabot for GitHub Actions only, weekly, with a 7-day cooldown to match `min-release-age`. It opens one grouped `ci(deps)` pull request, which has to pass the `gates` check like any other. npm updates stay manual: see "ncu flags". Dependabot alerts and its automated security fixes are both off for the repository, which does not affect these version updates.
 - `allowScripts` in `package.json` approves `esbuild`'s postinstall by exact version, so re-review it when esbuild moves. `core-js` (a funding banner), `@parcel/watcher` (builds from source only when asked) and `fsevents` (ships a prebuilt binary) are denied for every version.
 
 ### ncu flags
@@ -29,9 +30,9 @@
 
 ### Gates per stage
 
-There is no lint script, no CI and no git hooks. The gates are:
+There is no lint script and there are no git hooks. `.github/workflows/ci.yml` runs `npm ci`, `npx tsc --noEmit -p .` and `npx vite build` on every pull request and on pushes to `main`. The Playwright run stays local until #22. The gates are:
 
-- `npx vite build`, which must pass.
+- `npx vite build`, which must pass. On the Mac run it as `ddev npm run prod` once `ddev npm ci` has installed the container's binaries (see "Manual checks").
 - `npx tsc --noEmit -p .`, which must pass with no errors.
 - `npm test` on the Mac with ddev running, for changes under `src/scripts` or `templates`. It starts the dev server if it isn't running. It runs the installed Chrome (`channel: "chrome"` in `playwright.config.ts`), so `npx playwright install` is never needed.
 
@@ -50,7 +51,7 @@ The build reads no `VITE_` variables, so it needs no `.env`.
 
 ### Clean-tree CI replay
 
-There is no CI. The deploy runs `build.sh` on the server: `npm ci`, then `composer install` and the Craft migrations, then `npm run prod`. To replay the npm half, make a fresh worktree of the branch and run `npm ci && npm run prod`.
+CI (`.github/workflows/ci.yml`) covers the npm half on a clean Ubuntu runner: `npm ci`, `tsc` and `vite build`. It does not check the server's Node version, and the deploy reads no check status — `build.sh` deploys whatever `git pull` brings — so a green run is not a gated deploy. The deploy runs `build.sh` on the server: `npm ci`, then `composer install` and the Craft migrations, then `npm run prod`. To replay the npm half locally, make a fresh worktree of the branch and run `npm ci && npm run prod`.
 
 ### After bumping X
 
