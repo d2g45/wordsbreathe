@@ -5,7 +5,8 @@
     "main": "vite.config.mjs",
     "scripts": {
         "dev": "npx vite dev",
-        "prod": "npx vite build"
+        "prod": "npx vite build",
+        "test": "npx playwright test"
     },
     "repository": {
         "type": "git",
@@ -26,6 +27,7 @@
         ]
     },
     "devDependencies": {
+        "@playwright/test": "^1.65.0",
         "@tailwindcss/vite": "^4.3.5",
         "@types/glidejs__glide": "^3.6.6",
         "@typescript-eslint/eslint-plugin": "^8.71.2",
