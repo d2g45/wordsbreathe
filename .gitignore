@@ -122,3 +122,7 @@ dist
 /config/license.key
 /web/files/*
 /web/uploads
+
+# Playwright
+/test-results/
+/playwright-report/

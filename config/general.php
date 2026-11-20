@@ -26,5 +26,7 @@ return GeneralConfig::create()
         '@webroot' => dirname(__DIR__) . '/web',
     ])
     ->cacheDuration(604800)
+    // Off in dev, where template edits would otherwise serve stale block HTML.
+    ->enableTemplateCaching(App::env('CRAFT_ENVIRONMENT') !== 'dev')
     ->cpTrigger(App::env('CP_TRIGGER') ?? 'admin')
 ;

@@ -16,7 +16,8 @@ Before changing `package.json` or the lockfile, read the "Dependency updates" se
 
 ## Gates
 
-There are no tests and no lint. The gates are:
+There is no lint. The gates are:
 
 - `npx vite build`, which must pass.
 - `npx tsc --noEmit -p .`, which must pass with no errors.
+- `npm test` on the Mac with ddev running, for changes under `src/scripts` or `templates`. It starts the dev server if it isn't running.

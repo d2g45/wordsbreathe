@@ -1,0 +1,18 @@
+{% extends '_layout' %}
+
+{# Dev-only fixture for tests/smoke.spec.ts, routed in config/routes.php. #}
+{% block content %}
+    <div class="p-8">
+        <button type="button"
+            class="js-test-modal-open button button--default__red">
+            Open test modal
+        </button>
+    </div>
+
+    {% include 'modals/form' with { trigger: '.js-test-modal-open' } %}
+
+    {# No entry type renders this block yet, so it gets a stub item. #}
+    {% include 'blocks/formModal' with {
+        item: { type: 'formModal', buttonText: 'Open form' }
+    } %}
+{% endblock %}

@@ -29,12 +29,13 @@
 
 ### Gates per stage
 
-There are no tests, no lint script, no CI and no git hooks. The gates are:
+There is no lint script, no CI and no git hooks. The gates are:
 
 - `npx vite build`, which must pass.
 - `npx tsc --noEmit -p .`, which must pass with no errors.
+- `npm test` on the Mac with ddev running, for changes under `src/scripts` or `templates`. It starts the dev server if it isn't running. It runs the installed Chrome (`channel: "chrome"` in `playwright.config.ts`), so `npx playwright install` is never needed.
 
-The two can run at the same time.
+The first two can run at the same time.
 
 ### HEAD worktree setup
 
@@ -56,6 +57,7 @@ There is no CI. The deploy runs `build.sh` on the server: `npm ci`, then `compos
 - **Vite, `@vitejs/plugin-legacy`, `vite-plugin-pwa`, `vite-plugin-compression`, `tailwindcss` or `@tailwindcss/vite`:** build on the HEAD worktree and on the branch, and compare `web/dist`. Craft reads `web/dist/.vite/manifest.json` (`config/vite.php`), so the manifest has to stay at that path with the `src/scripts/main.ts` entry.
 - **`vite-plugin-pwa`:** check `web/dist/sw.js`, its precache list, `registerSW.js` and `manifest.webmanifest`.
 - **`vite-plugin-restart`:** with the dev server running, edit a `.twig` file and confirm the page reloads.
+- **`@playwright/test`:** run `npm test`.
 
 ### Per-commit steps
 
