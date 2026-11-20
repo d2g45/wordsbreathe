@@ -1,3 +1,4 @@
+import { offReady, onReady } from "@/scripts/ready";
 import { BaseModule } from "@/scripts/types";
 
 const SELECTORS = {
@@ -30,15 +31,13 @@ const initIMG = (): void => {
 };
 
 const init = (): void => {
-    addEventListener("DOMContentLoaded", initBG);
-    addEventListener("DOMContentLoaded", initIMG);
-    // initBG();
-    // initIMG();
+    onReady(initBG);
+    onReady(initIMG);
 };
 
 const destroy = (): void => {
-    removeEventListener("DOMContentLoaded", initBG);
-    removeEventListener("DOMContentLoaded", initIMG);
+    offReady(initBG);
+    offReady(initIMG);
 };
 
 const images: BaseModule = {
