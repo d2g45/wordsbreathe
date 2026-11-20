@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  # Only supersede pull-request runs. For a push, github.ref is always
+  # refs/heads/main, so cancelling would leave the earlier merge unchecked.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  gates:
+    name: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          # `.nvmrc` is the one place the Node version lives.
+          node-version-file: .nvmrc
+          cache: npm
+
+      # Also fails when package.json and package-lock.json disagree.
+      - id: install
+        run: npm ci
+
+      - name: tsc
+        run: npx tsc --noEmit -p .
+
+      # Runs even when tsc failed, so one run reports both gates — but not after a
+      # failed install, where it would only add "vite: not found".
+      - name: vite build
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: npx vite build
